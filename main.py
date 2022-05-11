@@ -31,3 +31,21 @@ print("TEST _ EMILLER")
 
 
 
+###################################################################################
+# E. Miller May 11, 2020 9:43 am
+
+import numpy as np
+import pandas as pd
+import nltk
+
+download_url = "https://www.microsoft.com/en-us/download/confirmation.aspx?id=52419"
+
+#WikiQA1 = pd.read_csv("WikiQACorpus/WikiQA.tsv", sep = '\t' )
+
+#WikiQA1.head()
+
+
+
+
+
+###################################################################################
