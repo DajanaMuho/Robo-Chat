@@ -38,6 +38,8 @@ import numpy as np
 import pandas as pd
 import nltk
 
+# importing libraries
+
 WikiQA1 = pd.read_csv("WikiQACorpus/WikiQA.tsv", sep = '\t' )
 
 # reading in main tsv file
