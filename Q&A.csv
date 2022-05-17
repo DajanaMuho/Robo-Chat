@@ -25,17 +25,17 @@ greeting_response_good,fine,"Nice to hear, what can I help you with today?"
 greeting_response_okay,ok,And what can I help you with today?
 greeting_response_okay,okay,What can I help you with today?
 greeting_reponse_bad,bad,What can I help you with today?
-greeting_response_bad,terrible, What can I do for you today?
-no_yes,yes, How can I help you?
-no_yes,yep, How can I help you?
-no_yes,yeah, How can I help you?
-no_yes,Yes, How can I help you?
-no_yes,Yeah, How can I help you?
-no_yes,Yep, How can I help you?
-yes_no,no, "Okay, just type stop, quit or end to finish the chat!"
-yes_no,nope, "Okay, just type stop, quit or end to finish the chat!"
-yes_no,nah, "Okay, just type stop, quit or end to finish the chat!"
-yes_no,that's it, "Okay, just type stop, quit or end to finish the chat!"
-yes_no,that was it, "Okay, just type stop, quit or end to finish the chat!"
-yes_no,that's all, "Okay, just type stop, quit or end to finish the chat!"
-yes_no,nothing, "Okay, just type stop, quit or end to finish the chat!"
+greeting_response_bad,terrible,What can I do for you today?
+no_yes,yes,How can I help you?
+no_yes,yep,How can I help you?
+no_yes,yeah,How can I help you?
+no_yes,Yes,How can I help you?
+no_yes,Yeah,How can I help you?
+no_yes,Yep,How can I help you?
+yes_no,no,Just type stop, quit or end to finish the chat
+yes_no,nope,Just type stop, quit or end to finish the chat
+yes_no,nah,Just type stop, quit or end to finish the chat
+yes_no,that's it,Okay, just type stop, quit or end to finish the chat
+yes_no,that was it,Okay, just type stop, quit or end to finish the chat
+yes_no,that's all,Okay, just type stop, quit or end to finish the chat
+yes_no,nothing,Okay, just type stop, quit or end to finish the chat
