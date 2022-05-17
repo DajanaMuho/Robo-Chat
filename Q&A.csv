@@ -3,10 +3,10 @@ greeting	Hello	Hola
 greeting	How are you	Good, how are you ?
 greeting	Hi	Greetings
 greeting	Hi there	Hello
-greeting  What's up! Not much, you?
-greeting  Sup. Nothing much, how about you?
-greeting  Who is this? I'm a chatbot!
-greeting  Who am I talking to? I'm a chatbot!
+greeting  What's up!  Not much, you?
+greeting  Sup.  Nothing much, how about you?
+greeting  Who is this?  I'm a chatbot!
+greeting  Who am I talking to?  You're not talking to anyone actually. I'm a chatbot!
 keywords	Prison	A prison (from Old French prisoun), also known as gaol or jail, is a place in which people are physically confined and usually deprived of a range of personal freedoms .
 keywords	Prison	Imprisonment or incarceration is a legal penalty that may be imposed by the state for the commission of a crime .
 keywords	Prison	Other terms used are penitentiary, correctional facility, remand centre, detention centre, and gaol or jail.
