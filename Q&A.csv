@@ -31,7 +31,7 @@ no_yes,yep,How can I help you?
 no_yes,yeah,How can I help you?
 no_yes,Yes,How can I help you?
 no_yes,Yeah,How can I help you?
-no_yes,Yep ,How can I help you?
+no_yes,Yep,How can I help you?
 yes_no,no,Just type stop, quit or end to finish the chat
 yes_no,nope,Just type stop, quit or end to finish the chat
 yes_no,nah,Just type stop, quit or end to finish the chat
