@@ -8,8 +8,8 @@ keywords,Prison,Imprisonment or incarceration is a legal penalty that may be imp
 keywords,Prison,"Other terms used are penitentiary, correctional facility, remand centre, detention centre, and gaol or jail."
 greeting,What's up?,"Not much, you?"
 greeting,Sup,"Nothing much, you?"
-greeting,Who is this?,I'm a chatbot!
-greeting,Who am I talking to?,You're not talking to anyone actually. I'm a chatbot!
+chatbot,Who is this?,I'm a chatbot!
+chatbot,Who am I talking to?,You're not talking to anyone actually. I'm a chatbot!
 greeting,Howdy!,Well hi there yourself!
 closing,Thanks,You're Welcome! Will there be anything else?
 closing,thank you,You're Welcome! Will there be anything else?
