@@ -143,9 +143,29 @@ while True:
     print(Fore.YELLOW + "HUMAN:" + Style.RESET_ALL, end="")
     message = input("")
     if message in QUIT:
-        print(Fore.RED + "Ending the chat" + Style.RESET_ALL, end="")
+        print(Fore.RED + "Ending the chat\n" + Style.RESET_ALL, end="")
         break
     intents = pred_class(message, words, classes)
     result = get_response(intents, dataset)
     print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, result)
+
+def RUN_CHATBOT():
+
+    # running the chatbot
+    print('START CHATTING WITH THE ROBO_CHART, TYPE any of the words: ', QUIT, 'to stop the conversation!')
+
+    while True:
+        print(Fore.YELLOW + "HUMAN:" + Style.RESET_ALL, end="")
+        message = input("")
+        if message in QUIT:
+            print(Fore.RED + "Ending the chat\n " + Style.RESET_ALL, end="")
+            break
+        intents = pred_class(message, words, classes)
+        result = get_response(intents, dataset)
+        print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, result)
+
+
+    
+RUN_CHATBOT()   # TESTING FUNCTION - BASIC CHATBOT
+
 
