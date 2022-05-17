@@ -1,15 +1,15 @@
 Tag,Pattern,Responses
 greeting,Hello,Hola
-greeting,How are you,"Good, how are you ?"
+greeting_question,How are you,"Good, how are you ?"
 greeting,Hi,Greetings
 greeting,Hi there,Hello
 keywords,Prison,"A prison (from Old French prisoun), also known as gaol or jail, is a place in which people are physically confined and usually deprived of a range of personal freedoms ."
 keywords,Prison,Imprisonment or incarceration is a legal penalty that may be imposed by the state for the commission of a crime .
 keywords,Prison,"Other terms used are penitentiary, correctional facility, remand centre, detention centre, and gaol or jail."
-greeting,What's up?,"Not much, you?"
-greeting,Sup,"Nothing much, you?"
-chatbot,Who is this?,I'm a chatbot!
-chatbot,Who am I talking to?,You're not talking to anyone actually. I'm a chatbot!
+greeting_question,What's up?,"Not much, you?"
+greeting_question,Sup,"Nothing much, you?"
+chatbot_question,Who is this?,I'm a chatbot!
+chatbot_question,Who am I talking to?,You're not talking to anyone actually. I'm a chatbot!
 greeting,Howdy!,Well hi there yourself!
 closing,Thanks,You're Welcome! Will there be anything else?
 closing,thank you,You're Welcome! Will there be anything else?
