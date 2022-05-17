@@ -1,6 +1,6 @@
 Tag,Pattern,Responses
 greeting,Hello,Hola
-greeting_question,How are you,"Good, how are you ?"
+greeting_question,How are you,Good, how are you?
 greeting,Hi,Greetings
 greeting,Hi there,Hello
 keywords,Prison,"A prison (from Old French prisoun), also known as gaol or jail, is a place in which people are physically confined and usually deprived of a range of personal freedoms ."
@@ -10,13 +10,13 @@ greeting,Howdy,Hi there yourself!
 closing,Thanks,You're Welcome! Will there be anything else?
 closing,thank you,You're Welcome! Will there be anything else?
 closing,gracias,You're Welcome! Will there be anything else?
-greeting_question,What's up?,"Not much, you?"
-greeting_question,Sup,"Nothing much, you?"
+greeting_question,What's up?,Not much, you?
+greeting_question,Sup,Nothing much, you?
 chatbot_question,Who is this,I'm a chatbot!
 chatbot_question,Who am I talking to,You're not talking to anyone actually. I'm a chatbot!
-greeting_response,good,"That's good, what can I help you with today?"
-greeting_response,fine,"Nice to hear, what can I help you with today?"
-greeting_response,ok,"And what can I help you with today?"
-greeting_response,okay,"What can I help you with today?"
-greeting_reponse,bad,"What can I help you with today?"
-greeting_response,terrible, "What can I do for you today?"
+greeting_response,good,That's good, what can I help you with today?
+greeting_response,fine,Nice to hear, what can I help you with today?
+greeting_response,ok,And what can I help you with today?
+greeting_response,okay,What can I help you with today?
+greeting_reponse,bad,What can I help you with today?
+greeting_response,terrible, What can I do for you today?
