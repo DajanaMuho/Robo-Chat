@@ -26,5 +26,5 @@ greeting_response_okay,ok,And what can I help you with today?
 greeting_response_okay,okay,What can I help you with today?
 greeting_reponse_bad,bad,What can I help you with today?
 greeting_response_bad,terrible, What can I do for you today?
-chatbot_question_real,need a real person, "Sorry, only a chatbot here! How can I help you?"
-chatbot_question_real,I want a real person, "Sorry, just a chatbot here! How can I help you?"
+chatbot_question_real,need a real person,"Sorry, only a chatbot here! How can I help you?"
+chatbot_question_real,I want a real person,"Sorry, just a chatbot here! How can I help you?"
