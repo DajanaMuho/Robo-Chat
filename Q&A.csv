@@ -6,11 +6,17 @@ greeting,Hi there,Hello
 keywords,Prison,"A prison (from Old French prisoun), also known as gaol or jail, is a place in which people are physically confined and usually deprived of a range of personal freedoms ."
 keywords,Prison,Imprisonment or incarceration is a legal penalty that may be imposed by the state for the commission of a crime .
 keywords,Prison,"Other terms used are penitentiary, correctional facility, remand centre, detention centre, and gaol or jail."
-greeting_question,What's up?,"Not much, you?"
-greeting_question,Sup,"Nothing much, you?"
-chatbot_question,Who is this?,I'm a chatbot!
-chatbot_question,Who am I talking to?,You're not talking to anyone actually. I'm a chatbot!
-greeting,Howdy!,Well hi there yourself!
+greeting,Howdy,Hi there yourself!
 closing,Thanks,You're Welcome! Will there be anything else?
 closing,thank you,You're Welcome! Will there be anything else?
-closing,gracias!,You're Welcome! Will there be anything else?
+closing,gracias,You're Welcome! Will there be anything else?
+greeting_question,What's up?,"Not much, you?"
+greeting_question,Sup,"Nothing much, you?"
+chatbot_question,Who is this,I'm a chatbot!
+chatbot_question,Who am I talking to,You're not talking to anyone actually. I'm a chatbot!
+greeting_response,good,"That's good, what can I help you with today?"
+greeting_response,fine,"Nice to hear, what can I help you with today?"
+greeting_response,ok,"And what can I help you with today?"
+greeting_response,okay,"What can I help you with today?"
+greeting_reponse,bad,"What can I help you with today?"
+greeting_response,terrible, "What can I do for you today?"
