@@ -26,4 +26,3 @@ greeting_response_okay,ok,And what can I help you with today?
 greeting_response_okay,okay,What can I help you with today?
 greeting_reponse_bad,bad,What can I help you with today?
 greeting_response_bad,terrible, What can I do for you today?
-no_yes, yes, How can I help you?
