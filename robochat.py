@@ -14,8 +14,15 @@ nltk.download("punkt")
 nltk.download("wordnet")
 lemmatizer = WordNetLemmatizer()
 
-# Read dataset
-dataset = pd.read_csv('Q&A.csv', sep='\t')
+# Read the dataset
+
+QA_url = "https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/e546e6b0d62e369d49e6ebac956dfb6b8d9de24c/Q%26A.csv"
+
+# Downloading chatbot csv with only a few responses
+
+dataset = pd.read_csv(QA_url, sep='\t')
+
+#####################################################
 
 words = []
 classes = []
