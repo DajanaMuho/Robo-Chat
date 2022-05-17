@@ -1,6 +1,6 @@
 Tag,Pattern,Responses
 greeting,Hello,Hola
-greeting_question,How are you,Good, how are you?
+greeting_question,How are you,I'm great! How are you?
 greeting,Hi,Greetings
 greeting,Hi there,Hello
 keywords,Prison,"A prison (from Old French prisoun), also known as gaol or jail, is a place in which people are physically confined and usually deprived of a range of personal freedoms ."
