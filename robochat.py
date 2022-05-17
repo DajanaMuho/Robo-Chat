@@ -8,6 +8,9 @@ from nltk.stem import WordNetLemmatizer
 import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense, Dropout
+import colorama
+colorama.init()
+from colorama import Fore, Style, Back
 
 nltk.download('omw-1.4')
 nltk.download("punkt")
@@ -123,9 +126,13 @@ def get_response(intents_list, data):
 
 
 # running the chatbot
-print('START CHATTING WITH THE ROBO_CHART')
+print(Fore.YELLOW + "START CHATTING WITH THE ROBO_CHART (type STOP to end the conversation)!" + Style.RESET_ALL)
 while True:
+    print(Fore.LIGHTBLUE_EX + "Human: " + Style.RESET_ALL, end="")
     message = input("")
+    if message.lower() == "stop":
+        print(Fore.YELLOW + "ThANK YOU FOR YOUR TIME! TILL NEXT TIME!" + Style.RESET_ALL)
+        break
     intents = pred_class(message, words, classes)
     result = get_response(intents, dataset)
-    print(result)
+    print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, result)
