@@ -10,3 +10,7 @@ greeting,What's up?,"Not much, you?"
 greeting,Sup,"Nothing much, you?"
 greeting,Who is this?,I'm a chatbot!
 greeting,Who am I talking to?,You're not talking to anyone actually. I'm a chatbot!
+greeting,Howdy!,Well hi there yourself!
+closing,Thanks,You're Welcome! Will there be anything else?
+closing,thank you,You're Welcome! Will there be anything else?
+closing,gracias!You're Welcome! Will there be anything else?
