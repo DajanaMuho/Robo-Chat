@@ -1,3 +1,5 @@
+%%time
+
 import pandas as pd
 import json
 import string
@@ -14,15 +16,18 @@ nltk.download("punkt")
 nltk.download("wordnet")
 lemmatizer = WordNetLemmatizer()
 
+#####################################################
+
 # Read the dataset
 
-QA_url = "https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/e546e6b0d62e369d49e6ebac956dfb6b8d9de24c/Q%26A.csv"
+QA_url = "https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv"
 
 # Downloading chatbot csv with only a few responses
 
-dataset = pd.read_csv(QA_url, sep='\t')
+dataset = pd.read_csv(QA_url)
 
 #####################################################
+
 
 words = []
 classes = []
@@ -42,7 +47,7 @@ for index, row in dataset.iterrows():
 # Lemmatize the words
 words = [lemmatizer.lemmatize(word.lower()) for word in words if word not in string.punctuation]
 
-# sort the set to remove dublicated words
+# sort the set to remove duplicated words
 words = sorted(set(words))
 classes = sorted(set(classes))
 
@@ -129,10 +134,20 @@ def get_response(intents_list, data):
     return result
 
 
+QUIT =  list(["stop","quit", "end", "Stop","Quit","End", "STOP", "QUIT", "END"])
+
+
 # running the chatbot
-print('START CHATTING WITH THE ROBO_CHART')
+print('START CHATTING WITH THE ROBO-CHAT')
 while True:
     message = input("")
+    
+    if message in QUIT:
+        
+        break
+    
     intents = pred_class(message, words, classes)
     result = get_response(intents, dataset)
     print(result)
+
+print("Okay, have a great day!")
