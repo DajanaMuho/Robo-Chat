@@ -17,8 +17,17 @@ nltk.download("punkt")
 nltk.download("wordnet")
 lemmatizer = WordNetLemmatizer()
 
-# Read dataset
-dataset = pd.read_csv('Q&A.csv', sep='\t')
+#####################################################
+
+# Read the dataset
+
+QA_url = "https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv"
+
+# Downloading chatbot csv with only a few responses
+
+dataset = pd.read_csv(QA_url, sep='\t')
+
+#####################################################
 
 words = []
 classes = []
@@ -38,7 +47,7 @@ for index, row in dataset.iterrows():
 # Lemmatize the words
 words = [lemmatizer.lemmatize(word.lower()) for word in words if word not in string.punctuation]
 
-# sort the set to remove dublicated words
+# sort the set to remove duplicated words
 words = sorted(set(words))
 classes = sorted(set(classes))
 
@@ -126,13 +135,14 @@ def get_response(intents_list, data):
 
 
 # running the chatbot
-print(Fore.YELLOW + "START CHATTING WITH THE ROBO_CHART (type STOP to end the conversation)!" + Style.RESET_ALL)
+print('START CHATTING WITH THE ROBO_CHART')
+QUIT = list(["stop", "quit", "end", "Stop", "Quit","End", "STOP", "QUIT", "END"])
+
 while True:
-    print(Fore.LIGHTBLUE_EX + "Human: " + Style.RESET_ALL, end="")
     message = input("")
-    if message.lower() == "stop":
-        print(Fore.YELLOW + "ThANK YOU FOR YOUR TIME! TILL NEXT TIME!" + Style.RESET_ALL)
+    if message in QUIT:
         break
     intents = pred_class(message, words, classes)
     result = get_response(intents, dataset)
     print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, result)
+
