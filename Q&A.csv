@@ -14,9 +14,9 @@ greeting_question,What's up?,"Nothing much, you?"
 greeting_question,Sup,"Nothing much, you?"
 chatbot_question,Who is this,I'm a chatbot!
 chatbot_question,Who am I talking to,You're not talking to anyone actually. I'm a chatbot!
-greeting_response,good,That's good, what can I help you with today?
-greeting_response,fine,Nice to hear, what can I help you with today?
-greeting_response,ok,And what can I help you with today?
-greeting_response,okay,What can I help you with today?
-greeting_reponse,bad,What can I help you with today?
-greeting_response,terrible, What can I do for you today?
+greeting_response_good,good,"That's good, what can I help you with today?"
+greeting_response_good,fine,"Nice to hear, what can I help you with today?"
+greeting_response_okay,ok,And what can I help you with today?
+greeting_response_okay,okay,What can I help you with today?
+greeting_reponse_bad,bad,What can I help you with today?
+greeting_response_bad,terrible, What can I do for you today?
