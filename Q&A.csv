@@ -1,9 +1,12 @@
-Tag	Pattern	Responses
-greeting	Hello	Hola
-greeting	How are you	Good, how are you ?
-greeting	Hi	Greetings
-greeting	Hi there	Hello
-keywords	Prison	A prison (from Old French prisoun), also known as gaol or jail, is a place in which people are physically confined and usually deprived of a range of personal freedoms .
-keywords	Prison	Imprisonment or incarceration is a legal penalty that may be imposed by the state for the commission of a crime .
-keywords	Prison	Other terms used are penitentiary, correctional facility, remand centre, detention centre, and gaol or jail.
-
+Tag,Pattern,Responses
+0,greeting,Hello,Hola
+1,greeting,How are you,"Good, how are you ?"
+2,greeting,Hi,Greetings
+3,greeting,Hi there,Hello
+4,keywords,Prison,"A prison (from Old French prisoun), also known as gaol or jail, is a place in which people are physically confined and usually deprived of a range of personal freedoms ."
+5,keywords,Prison,Imprisonment or incarceration is a legal penalty that may be imposed by the state for the commission of a crime .
+6,keywords,Prison,"Other terms used are penitentiary, correctional facility, remand centre, detention centre, and gaol or jail."
+7,greeting,What's up?,"Not much, you?"
+8,greeting,Sup,"Nothing much, you?"
+9,greeting,Who is this?,I'm a chatbot!
+10,greeting,Who am I talking to?,You're not talking to anyone actually. I'm a chatbot!
