@@ -32,9 +32,3 @@ no_yes, yeah, How can I help you?
 no_yes, Yes, How can I help you?
 no_yes, Yeah, How can I help you?
 no_yes,Yep, How can I help you?
-yes_no, no, "Okay, just type stop, quit or end to finish the chat!"
-yes_no, nope, "Okay, just type stop, quit or end to finish the chat!"
-yes_no, nah, "Okay, just type stop, quit or end to finish the chat!"
-yes_no, that's it, "Okay, just type stop, quit or end to finish the chat!"
-yes_no, that was it, "Okay, just type stop, quit or end to finish the chat!"
-yes_no, that's all, "Okay, just type stop, quit or end to finish the chat!"
