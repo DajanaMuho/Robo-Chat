@@ -16,11 +16,15 @@ chatbot_question_who,Who is this,I'm a chatbot! How can I help you?
 chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
 chatbot_question_no,Are you a person,"Nope I'm a chatbot! How can I help you?"
 chatbot_question_no,Are you a real person,"Nope, just a friendly chatbot! How can I help you?"
+greeting_response_good,fantasic,"That's good, what can I help you with today?"
+greeting_response_good,great,"Nice to hear, what can I help you with today
+greeting_response_good,super,"That's good, what can I help you with today?"
+greeting_response_good,perfect,"Nice to hear, what can I help you with today
 greeting_response_good,good,"That's good, what can I help you with today?"
 greeting_response_good,fine,"Nice to hear, what can I help you with today?"
 greeting_response_okay,ok,And what can I help you with today?
 greeting_response_okay,okay,What can I help you with today?
 greeting_reponse_bad,bad,What can I help you with today?
 greeting_response_bad,terrible, What can I do for you today?
-chatbot_question_real,a real person, "Sorry, only a chatbot here! How can I help you?"
+chatbot_question_real,need a real person, "Sorry, only a chatbot here! How can I help you?"
 chatbot_question_real,I want a real person, "Sorry, just a chatbot here! How can I help you?"
