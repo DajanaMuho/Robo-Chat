@@ -25,7 +25,7 @@ QA_url = "https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv"
 
 # Downloading chatbot csv with only a few responses
 
-dataset = pd.read_csv(QA_url, sep='\t')
+dataset = pd.read_csv(QA_url)
 
 #####################################################
 
@@ -135,12 +135,15 @@ def get_response(intents_list, data):
 
 
 # running the chatbot
-print('START CHATTING WITH THE ROBO_CHART')
 QUIT = list(["stop", "quit", "end", "Stop", "Quit","End", "STOP", "QUIT", "END"])
 
+print('START CHATTING WITH THE ROBO_CHART, TYPE any of the words: ', QUIT, 'to stop the conversation!')
+
 while True:
+    print(Fore.YELLOW + "HUMAN:" + Style.RESET_ALL, end="")
     message = input("")
     if message in QUIT:
+        print(Fore.RED + "Ending the chat" + Style.RESET_ALL, end="")
         break
     intents = pred_class(message, words, classes)
     result = get_response(intents, dataset)
