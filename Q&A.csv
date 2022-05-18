@@ -11,8 +11,8 @@
 9,greeting_question,Sup,"Nothing much, you?"
 10,chatbot_question_who,Who is this,I'm a chatbot! How can I help you?
 11,chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
-12,chatbot_question_no,Are you a person,Nope I'm a chatbot! How can I help you?
-13,chatbot_question_no,Are you a real person,"Nope, just a friendly chatbot! How can I help you?"
+12,chatbot_question_person,Are you a person,Nope I'm a chatbot! How can I help you?
+13,chatbot_question_person,Are you a real person,"Nope, just a friendly chatbot! How can I help you?"
 14,greeting_response_good,fantasic,"That's good, what can I help you with today?"
 15,greeting_response_good,great,"Nice to hear, what can I help you with today?"
 16,greeting_response_good,super,"That's good, what can I help you with today?"
@@ -41,3 +41,12 @@
 39,Unknown,,Sorry I'm lost. Maybe you can ask me something else instead?
 40,Unknown,,"I don't understand, can you ask me the question in another way maybe?"
 41,Unknown,,"I don't know that one, can you ask me something else maybe?"
+42,chatbot_question_person,what is this?,It's a chatbot here to answer your questions
+43,chatbot_question_person,I want a person now,I'm a friendly chatbot that can answer most your questions actually!
+44,chatbot_question_person,I need a person now,"Sorry I'm not a person, but I can answer your questions, because I'm a chatbot!"
+45,chatbot_question_who,What is your name?,I'm a chatbot named Robo-chat! How can I help you?
+46,chatbot_question_who,Can I have your name?,I'm a chatbot named Robo-chat! How can I help you?
+47,chatbot_question_who,I need your name ,I'm a chatbot named Robo-chat! How can I help you?
+48,greeting_response_bad,not good,What can I help you with today?
+49,greeting_response_bad,not good at all,What can I help you with today?
+50,greeting_response_bad,annoyed,What can I help you with today?
