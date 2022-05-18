@@ -4,9 +4,17 @@ from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
 import string
 import pandas as pd
+
 nltk.download('omw-1.4')
 nltk.download("punkt")
 nltk.download("wordnet")
+
+# ADDING STOPWORDS - E MILLER
+nltk.download("stopwords")
+
+# ADDING CONTRACTION EXPANDER - E MILLER
+import contractions
+
 lemmatizer = WordNetLemmatizer()
 
 
@@ -25,9 +33,20 @@ class PreProcessing:
         self.doc_y = []
 
     def pre_process_words(self):
+
         # Organize tags and patterns
         for index, row in self.dataset.iterrows():
             pattern = row["Pattern"]
+
+            ########## ADDED CODE - E_Miller 5_18
+
+            pattern = text_preprocessor(pattern)
+
+            # Calling text_preprocessor function to add processing to pattern
+
+            ########## ADDED CODE - E_Miller 5_18
+
+
             tokens = nltk.word_tokenize(pattern)
             self.words.extend(tokens)
             self.doc_X.append(pattern)
@@ -63,7 +82,7 @@ class PreProcessing:
 
         return training
 
-    #EDWARDS CODE TO MERGE CSVs
+    # EDWARDS CODE TO MERGE CSVs
     """
         QUESTION_COL = WikiQA1.loc[:, ["Question"]]
         QUESTIONS_REDUCED = text_preprocessor(QUESTION_COL)
@@ -80,7 +99,7 @@ class PreProcessing:
     """
 
     #EDWARD PREPROCESSING CODE - CAUSES ERRORS, PLEASE CHECK
-
+""""
     def text_preprocessor(text_df):
 
         # this function takes in a data frame of text-only columns
@@ -141,5 +160,65 @@ class PreProcessing:
         
         return TXT
 
+"""
 
 
+def text_preprocessor(text):
+    # this function takes in a string of text and processes it
+
+    punctuation = ",!\"#$%&()*+-./:;<=>?@[\]^_`{|}~\n"
+    # Saving a list of commonly used punctuation to a string in order to remove
+    # them from the text columns
+    stop_words = stopwords.words("english")
+    # getting list of common stopwords to remove from the text entries
+    lemma = WordNetLemmatizer()
+    # setting up lemmatizing function
+    stemm = PorterStemmer()
+
+    # SETTING UP NEEDED FUNCTIONS TO PROCESS TEXT
+
+    expanded_words = []
+    # creating an empty list
+    for word in text.split():
+        # using contractions.fix to expand the shortened words
+        expanded_words.append(contractions.fix(word))
+
+    expanded_text = ' '.join(expanded_words)
+
+    # EXPANDING CONTRACTIONS
+
+    new_text = expanded_text.lower()
+
+    # MAKE TEXT LOWER CASE
+
+    for char in new_text:
+        if char in punctuation:
+            new_text = new_text.replace(char, " ")
+
+    # REMOVING PUNCTUATION
+
+    new_text = new_text.split()
+
+    # SPLITTING UP TEXT INTO INDIVIDUAL WORDS
+
+    for word in new_text:
+        if word in stop_words:
+            new_text.remove(word)
+
+    # REMOVING STOP WORDS
+
+    for word in new_text:
+        lemma.lemmatize(word)
+
+    # LEMMATIZING WORDS
+
+    for word in new_text:
+        stemm.stem(word)
+
+    # STEMMING WORDS
+
+    new_text = " ".join(new_text)
+
+    # PUTTING REDUCED BACK TOGETHER TO RETURN
+
+    return new_text
