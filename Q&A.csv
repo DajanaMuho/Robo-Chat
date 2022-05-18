@@ -1,43 +1,43 @@
-Tag,Pattern,Responses
-greeting,Hello,Hola
-greeting_question_how,How are you,I'm great! How are you?
-greeting,Hi,Greetings
-greeting,Hi there,Hello
-greeting,Howdy,Hi there yourself!
-closing,Thanks,You're Welcome! Will there be anything else?
-closing,thank you,You're Welcome! Will there be anything else?
-closing,gracias,You're Welcome! Will there be anything else?
-greeting_question,What's up?,"Nothing much, you?"
-greeting_question,Sup,"Nothing much, you?"
-chatbot_question_who,Who is this,I'm a chatbot! How can I help you?
-chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
-chatbot_question_no,Are you a person,Nope I'm a chatbot! How can I help you?
-chatbot_question_no,Are you a real person,"Nope, just a friendly chatbot! How can I help you?"
-greeting_response_good,fantasic,"That's good, what can I help you with today?"
-greeting_response_good,great,"Nice to hear, what can I help you with today?"
-greeting_response_good,super,"That's good, what can I help you with today?"
-greeting_response_good,perfect,"Nice to hear, what can I help you with today?"
-greeting_response_good,good,"That's good, what can I help you with today?"
-greeting_response_good,fine,"Nice to hear, what can I help you with today?"
-greeting_response_okay,ok,And what can I help you with today?
-greeting_response_okay,okay,What can I help you with today?
-greeting_reponse_bad,bad,What can I help you with today?
-greeting_response_bad,terrible,What can I do for you today?
-no_yes,yes,How can I help you?
-no_yes,yep,How can I help you?
-no_yes,yeah,How can I help you?
-no_yes,Yes,How can I help you?
-no_yes,Yeah,How can I help you?
-no_yes,Yep,How can I help you?
-yes_no,no,Just type STOP QUIT or END to finish the chat
-yes_no,nope,Just type STOP QUIT or END to finish the chat
-yes_no,nah,Just type STOP QUIT or END to finish the chat
-yes_no,that's it,Just type STOP QUIT or END to finish the chat
-yes_no,that was it,Just type STOP QUIT or END to finish the chat
-yes_no,that's all,Just type STOP QUIT or END to finish the chat
-yes_no,nothing,Just type STOP QUIT or END to finish the chat
-Unknown,,I'm sorry I don't understand. Can you please rephrase that?
-Unknown,,"I don't understand, sorry. Can you ask that in another way maybe?"
-Unknown,,Sorry I'm lost. Maybe you can ask me something else instead?
-Unknown,,"I don't understand, can you ask me the question in another way maybe?"
-Unknown,,"I don't know that one, can you ask me something else maybe?"
+,Tag,Pattern,Responses
+0,greeting,Hello,Hola
+1,greeting_question_how,How are you,I'm great! How are you?
+2,greeting,Hi,Greetings
+3,greeting,Hi there,Hello
+4,greeting,Howdy,Hi there yourself!
+5,closing,Thanks,You're Welcome! Will there be anything else?
+6,closing,thank you,You're Welcome! Will there be anything else?
+7,closing,gracias,You're Welcome! Will there be anything else?
+8,greeting_question,What's up?,"Nothing much, you?"
+9,greeting_question,Sup,"Nothing much, you?"
+10,chatbot_question_who,Who is this,I'm a chatbot! How can I help you?
+11,chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
+12,chatbot_question_no,Are you a person,Nope I'm a chatbot! How can I help you?
+13,chatbot_question_no,Are you a real person,"Nope, just a friendly chatbot! How can I help you?"
+14,greeting_response_good,fantasic,"That's good, what can I help you with today?"
+15,greeting_response_good,great,"Nice to hear, what can I help you with today?"
+16,greeting_response_good,super,"That's good, what can I help you with today?"
+17,greeting_response_good,perfect,"Nice to hear, what can I help you with today?"
+18,greeting_response_good,good,"That's good, what can I help you with today?"
+19,greeting_response_good,fine,"Nice to hear, what can I help you with today?"
+20,greeting_response_okay,ok,And what can I help you with today?
+21,greeting_response_okay,okay,What can I help you with today?
+22,greeting_reponse_bad,bad,What can I help you with today?
+23,greeting_response_bad,terrible,What can I do for you today?
+24,no_yes,yes,How can I help you?
+25,no_yes,yep,How can I help you?
+26,no_yes,yeah,How can I help you?
+27,no_yes,Yes,How can I help you?
+28,no_yes,Yeah,How can I help you?
+29,no_yes,Yep,How can I help you?
+30,yes_no,no,Just type STOP QUIT or END to finish the chat
+31,yes_no,nope,Just type STOP QUIT or END to finish the chat
+32,yes_no,nah,Just type STOP QUIT or END to finish the chat
+33,yes_no,that's it,Just type STOP QUIT or END to finish the chat
+34,yes_no,that was it,Just type STOP QUIT or END to finish the chat
+35,yes_no,that's all,Just type STOP QUIT or END to finish the chat
+36,yes_no,nothing,Just type STOP QUIT or END to finish the chat
+37,Unknown,,I'm sorry I don't understand. Can you please rephrase that?
+38,Unknown,,"I don't understand, sorry. Can you ask that in another way maybe?"
+39,Unknown,,Sorry I'm lost. Maybe you can ask me something else instead?
+40,Unknown,,"I don't understand, can you ask me the question in another way maybe?"
+41,Unknown,,"I don't know that one, can you ask me something else maybe?"
