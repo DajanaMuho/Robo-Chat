@@ -5,8 +5,6 @@ from nltk.stem import PorterStemmer
 import string
 import pandas as pd
 
-from robochat import lemmatizer
-
 nltk.download('omw-1.4')
 nltk.download("punkt")
 nltk.download("wordnet")
@@ -16,6 +14,7 @@ nltk.download("stopwords")
 
 # ADDING CONTRACTION EXPANDER - E MILLER
 import contractions
+
 
 def clean_text(text):
     tokens = nltk.word_tokenize(text)
@@ -44,7 +43,6 @@ class PreProcessing:
             # Calling text_preprocessor function to add processing to pattern
 
             ########## ADDED CODE - E_Miller 5_18
-
 
             tokens = nltk.word_tokenize(pattern)
             self.words.extend(tokens)
@@ -96,8 +94,9 @@ class PreProcessing:
         # combining the two datasets
         display(dataset_FULL)
     """
-def text_preprocessor(text):
 
+
+def text_preprocessor(text):
     # this function takes in a string of text and processes it
     # so that it can more easily fit into the neural network
 
