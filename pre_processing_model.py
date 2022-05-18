@@ -77,7 +77,7 @@ class PreProcessing:
     """
 
     #EDWARD PREPROCESSING CODE - CAUSES ERRORS, PLEASE CHECK
-    """
+
     def text_preprocessor(text_df):
         # this function takes in a data frame of text only columns
         # and goes through each column and processes the text data
@@ -138,4 +138,4 @@ class PreProcessing:
             # columns are filled
         
         return TXT
-    """
+
