@@ -1,6 +1,9 @@
 import nltk
+from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from nltk.stem import PorterStemmer
 import string
+import pandas as pd
 nltk.download('omw-1.4')
 nltk.download("punkt")
 nltk.download("wordnet")
@@ -88,8 +91,6 @@ class PreProcessing:
         num_cols = len(text_df.columns)
         
         # getting number of rows and columns in data frame
-        QUESTION_COL = WikiQA1.loc[:, ["Question"]]
-        QUESTIONS_REDUCED = text_preprocessor(QUESTION_COL)
         TXT = pd.DataFrame(columns = text_df.columns, index = text_df.index)
         # setting up a new data frame to fill with processed text
         punctuation = ",!\"#$%&()*+-./:;<=>?@[\]^_`{|}~\n"
@@ -99,7 +100,7 @@ class PreProcessing:
         # getting list of common stopwords to remove from the text entries
         lemma = WordNetLemmatizer()
         # setting up lemmatizing function
-        stemm =  PorterStemmer()
+        stemm = PorterStemmer()
         for i in range(num_cols):
             # loop through the columns in the data frame
             converted_text = []
