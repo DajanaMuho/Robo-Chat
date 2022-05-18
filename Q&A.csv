@@ -4,12 +4,12 @@
 2,greeting,Hi,Greetings
 3,greeting,Hi there,Hello
 4,greeting,Howdy,Hi there yourself!
-5,closing,Thanks,You're Welcome! Will there be anything else?
+5,closing,thanks,You're Welcome! Will there be anything else?
 6,closing,thank you,You're Welcome! Will there be anything else?
 7,closing,gracias,You're Welcome! Will there be anything else?
 8,greeting_question,What's up?,"Nothing much, you?"
-9,greeting_question,Sup,"Nothing much, you?"
-10,chatbot_question_who,Who is this,I'm a chatbot! How can I help you?
+9,greeting_question,what's up?,"Nothing much, you?"
+10,chatbot_question_who,Who's this,I'm a chatbot! How can I help you?
 11,chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
 12,chatbot_question_person,Are you a person,Nope I'm a chatbot! How can I help you?
 13,chatbot_question_person,Are you a real person,"Nope, just a friendly chatbot! How can I help you?"
