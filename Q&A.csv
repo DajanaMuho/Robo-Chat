@@ -36,3 +36,8 @@ yes_no,that's it,Just type STOP QUIT or END to finish the chat
 yes_no,that was it,Just type STOP QUIT or END to finish the chat
 yes_no,that's all,Just type STOP QUIT or END to finish the chat
 yes_no,nothing,Just type STOP QUIT or END to finish the chat
+Unknown,,I'm sorry I don't understand. Can you please rephrase that?
+Unknown,,"I don't understand, sorry. Can you ask that in another way maybe?"
+Unknown,,Sorry I'm lost. Maybe you can ask me something else instead?
+Unknown,,"I don't understand, can you ask me the question in another way maybe?"
+Unknown,,"I don't know that one, can you ask me something else maybe?"
