@@ -11,8 +11,8 @@
 9,greeting_question,what's up?,"Nothing much, you?"
 10,chatbot_question_who,Who's this,I'm a chatbot! How can I help you?
 11,chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
-12,chatbot_question_person,Are you a person,Nope I'm a chatbot! How can I help you?
-13,chatbot_question_person,Are you a real person,"Nope, just a friendly chatbot! How can I help you?"
+12,chatbot_question_person,Are you a person,I'm a chatbot! How can I help you?
+13,chatbot_question_person,Are you a real person,I'm a friendly chatbot! How can I help you?
 14,greeting_response_good,fantasic,"That's good, what can I help you with today?"
 15,greeting_response_good,great,"Nice to hear, what can I help you with today?"
 16,greeting_response_good,super,"That's good, what can I help you with today?"
@@ -21,8 +21,8 @@
 19,greeting_response_good,fine,"Nice to hear, what can I help you with today?"
 20,greeting_response_okay,ok,And what can I help you with today?
 21,greeting_response_okay,okay,What can I help you with today?
-22,greeting_reponse_bad,bad,What can I help you with today?
-23,greeting_response_bad,terrible,What can I do for you today?
+22,greeting_reponse_bad,bad,Sorry to hear that. What can I do for you today?
+23,greeting_response_bad,terrible,Sorry to hear that. What can I do for you today?
 24,no_yes,yes,How can I help you?
 25,no_yes,yep,How can I help you?
 26,no_yes,yeah,How can I help you?
@@ -47,9 +47,9 @@
 45,chatbot_question_who,What is your name?,I'm a chatbot named Robo-chat! How can I help you?
 46,chatbot_question_who,Can I have your name?,I'm a chatbot named Robo-chat! How can I help you?
 47,chatbot_question_who,I need your name ,I'm a chatbot named Robo-chat! How can I help you?
-48,greeting_response_bad,not good,What can I help you with today?
-49,greeting_response_bad,not good at all,What can I help you with today?
-50,greeting_response_bad,annoyed,What can I help you with today?
+48,greeting_response_bad,not good,Sorry to hear that. What can I do for you today?
+49,greeting_response_bad,not good at all,Sorry to hear that. What can I do for you today?
+50,greeting_response_bad,annoyed,Sorry to hear that. What can I do for you today?
 51,greeting_question_how,How are you doing?,I'm great! How are you?
 52,greeting_question_how,Doing okay?,I'm great! How are you?
 53,greeting_question_how,Everything good?,I'm great! How are you?
@@ -62,3 +62,5 @@
 60,closing,Thanks,You're Welcome! Will there be anything else?
 61,closing,got it thanks,You're Welcome! Will there be anything else?
 62,closing,understood. thanks a lot!,You're Welcome! Will there be anything else?
+63,greeting_response_bad,lousy,Sorry to hear that. What can I do for you today?
+64,greeting_response_bad,really annoyed,Sorry to hear that. What can I do for you today?
