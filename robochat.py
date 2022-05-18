@@ -27,6 +27,10 @@ QA_url = "https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv"
 
 dataset = pd.read_csv(QA_url)
 
+dataset = dataset.fillna('')
+
+# ADDED fillna('') to prevent errors from functions not findins a string
+
 #####################################################
 
 words = []
