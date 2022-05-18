@@ -1,66 +1,69 @@
-,Tag,Pattern,Responses
-0,greeting,Hello,Hola
-1,greeting_question_how,How are you,I'm great! How are you?
-2,greeting,Hi,Greetings
-3,greeting,Hi there,Hello
-4,greeting,Howdy,Hi there yourself!
-5,closing,thanks,You're Welcome! Will there be anything else?
-6,closing,thank you,You're Welcome! Will there be anything else?
-7,closing,gracias,You're Welcome! Will there be anything else?
-8,greeting_question,What's up?,"Nothing much, you?"
-9,greeting_question,what's up?,"Nothing much, you?"
-10,chatbot_question_who,Who's this,I'm a chatbot! How can I help you?
-11,chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
-12,chatbot_question_person,Are you a person,I'm a chatbot! How can I help you?
-13,chatbot_question_person,Are you a real person,I'm a friendly chatbot! How can I help you?
-14,greeting_response_good,fantasic,"That's good, what can I help you with today?"
-15,greeting_response_good,great,"Nice to hear, what can I help you with today?"
-16,greeting_response_good,super,"That's good, what can I help you with today?"
-17,greeting_response_good,perfect,"Nice to hear, what can I help you with today?"
-18,greeting_response_good,good,"That's good, what can I help you with today?"
-19,greeting_response_good,fine,"Nice to hear, what can I help you with today?"
-20,greeting_response_okay,ok,And what can I help you with today?
-21,greeting_response_okay,okay,What can I help you with today?
-22,greeting_reponse_bad,bad,Sorry to hear that. What can I do for you today?
-23,greeting_response_bad,terrible,Sorry to hear that. What can I do for you today?
-24,no_yes,yes,How can I help you?
-25,no_yes,yep,How can I help you?
-26,no_yes,yeah,How can I help you?
-27,no_yes,Yes,How can I help you?
-28,no_yes,Yeah,How can I help you?
-29,no_yes,Yep,How can I help you?
-30,yes_no,no,Just type STOP QUIT or END to finish the chat
-31,yes_no,nope,Just type STOP QUIT or END to finish the chat
-32,yes_no,nah,Just type STOP QUIT or END to finish the chat
-33,yes_no,that's it,Just type STOP QUIT or END to finish the chat
-34,yes_no,that was it,Just type STOP QUIT or END to finish the chat
-35,yes_no,that's all,Just type STOP QUIT or END to finish the chat
-36,yes_no,nothing,Just type STOP QUIT or END to finish the chat
-37,Unknown,,I'm sorry I don't understand. Can you please rephrase that?
-38,Unknown,,"I don't understand, sorry. Can you ask that in another way maybe?"
-39,Unknown,,Sorry I'm lost. Maybe you can ask me something else instead?
-40,Unknown,,"I don't understand, can you ask me the question in another way maybe?"
-41,Unknown,,"I don't know that one, can you ask me something else maybe?"
-42,chatbot_question_person,what is this?,It's a chatbot here to answer your questions. How can I help you?
-43,chatbot_question_person,I want a person now,I'm a friendly chatbot that can answer most your questions actually!
-44,chatbot_question_person,I need a person now,"Sorry I'm not a person, but I can answer your questions, because I'm a chatbot!"
-45,chatbot_question_who,What is your name?,I'm a chatbot named Robo-chat! How can I help you?
-46,chatbot_question_who,Can I have your name?,I'm a chatbot named Robo-chat! How can I help you?
-47,chatbot_question_who,I need your name ,I'm a chatbot named Robo-chat! How can I help you?
-48,greeting_response_bad,not good,Sorry to hear that. What can I do for you today?
-49,greeting_response_bad,not good at all,Sorry to hear that. What can I do for you today?
-50,greeting_response_bad,annoyed,Sorry to hear that. What can I do for you today?
-51,greeting_question_how,How are you doing?,I'm great! How are you?
-52,greeting_question_how,Doing okay?,I'm great! How are you?
-53,greeting_question_how,Everything good?,I'm great! How are you?
-54,greeting_question_how,All good?,I'm great! How are you?
-55,greeting_question_how,"fine, you?",I'm great! How are you?
-56,chatbot_question_chatboot,Is this a chatbot?,"Yep, I'm a chatbot named Robo-chat! How can I help you?"
-57,chatbot_question_chatboot,"You're a chatbot, aren't you.","Yep, I'm a chatbot named Robo-chat! How can I help you?"
-58,chatbot_question_chatboot,Am I talking to a chatbot?,"Yep, I'm a chatbot named Robo-chat! How can I help you?"
-59,chatbot_question_person,Can I talk to a person instead of a chatbot?,I'm a chatbot here to answer your questions. How can I help you?
-60,closing,Thanks,You're Welcome! Will there be anything else?
-61,closing,got it thanks,You're Welcome! Will there be anything else?
-62,closing,understood. thanks a lot!,You're Welcome! Will there be anything else?
-63,greeting_response_bad,lousy,Sorry to hear that. What can I do for you today?
-64,greeting_response_bad,really annoyed,Sorry to hear that. What can I do for you today?
+Tag,Pattern,Responses
+greeting,Hello,Hola
+greeting_question_how,How are you,I'm great! How are you?
+greeting,Hi,Greetings
+greeting,Hi there,Hello
+greeting,Howdy,Hi there yourself!
+closing,thanks,You're Welcome! Will there be anything else?
+closing,thank you,You're Welcome! Will there be anything else?
+closing,gracias,You're Welcome! Will there be anything else?
+greeting_question,What's up?,"Nothing much, you?"
+greeting_question,what's up?,"Nothing much, you?"
+chatbot_question_who,Who's this,I'm a chatbot! How can I help you?
+chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
+chatbot_question_person,Are you a person,I'm a chatbot! How can I help you?
+chatbot_question_person,Are you a real person,I'm a friendly chatbot! How can I help you?
+greeting_response_good,fantasic,"That's good, what can I help you with today?"
+greeting_response_good,great,"Nice to hear, what can I help you with today?"
+greeting_response_good,super,"That's good, what can I help you with today?"
+greeting_response_good,perfect,"Nice to hear, what can I help you with today?"
+greeting_response_good,good,"That's good, what can I help you with today?"
+greeting_response_good,fine,"Nice to hear, what can I help you with today?"
+greeting_response_okay,ok,And what can I help you with today?
+greeting_response_okay,okay,What can I help you with today?
+greeting_reponse_bad,bad,Sorry to hear that. What can I do for you today?
+greeting_response_bad,terrible,Sorry to hear that. What can I do for you today?
+no_yes,yes,How can I help you?
+no_yes,yep,How can I help you?
+no_yes,yeah,How can I help you?
+no_yes,Yes,How can I help you?
+no_yes,Yeah,How can I help you?
+no_yes,Yep,How can I help you?
+yes_no,no,Just type STOP QUIT or END to finish the chat
+yes_no,nope,Just type STOP QUIT or END to finish the chat
+yes_no,nah,Just type STOP QUIT or END to finish the chat
+yes_no,that's it,Just type STOP QUIT or END to finish the chat
+yes_no,that was it,Just type STOP QUIT or END to finish the chat
+yes_no,that's all,Just type STOP QUIT or END to finish the chat
+yes_no,nothing,Just type STOP QUIT or END to finish the chat
+Unknown,    ,I'm sorry I don't understand. Can you please rephrase that?
+Unknown,     ,"I don't understand, sorry. Can you ask that in another way maybe?"
+Unknown,    ,Sorry I'm lost. Maybe you can ask me something else instead?
+Unknown,    ,"I don't understand, can you ask me the question in another way maybe?"
+Unknown,    ,"I don't know that one, can you ask me something else maybe?"
+chatbot_question_person,what is this?,It's a chatbot here to answer your questions. How can I help you?
+chatbot_question_person,I want a person now,I'm a friendly chatbot that can answer most your questions actually!
+chatbot_question_person,I need a person now,"Sorry I'm not a person, but I can answer your questions, because I'm a chatbot!"
+chatbot_question_who,What is your name?,I'm a chatbot named Robo-chat! How can I help you?
+chatbot_question_who,Can I have your name?,I'm a chatbot named Robo-chat! How can I help you?
+chatbot_question_who,I need your name ,I'm a chatbot named Robo-chat! How can I help you?
+greeting_response_bad,not good,Sorry to hear that. What can I do for you today?
+greeting_response_bad,not good at all,Sorry to hear that. What can I do for you today?
+greeting_response_bad,annoyed,Sorry to hear that. What can I do for you today?
+greeting_question_how,How are you doing?,I'm great! How are you?
+greeting_question_how,Doing okay?,I'm great! How are you?
+greeting_question_how,Everything good?,I'm great! How are you?
+greeting_question_how,All good?,I'm great! How are you?
+greeting_question_how,"fine, you?",I'm great! How are you?
+chatbot_question_chatboot,Is this a chatbot?,"Yep, I'm a chatbot named Robo-chat! How can I help you?"
+chatbot_question_chatboot,"You're a chatbot, aren't you.","Yep, I'm a chatbot named Robo-chat! How can I help you?"
+chatbot_question_chatboot,Am I talking to a chatbot?,"Yep, I'm a chatbot named Robo-chat! How can I help you?"
+chatbot_question_person,Can I talk to a person instead of a chatbot?,I'm a chatbot here to answer your questions. How can I help you?
+closing,Thanks,You're Welcome! Will there be anything else?
+closing,got it thanks,You're Welcome! Will there be anything else?
+closing,understood. thanks a lot!,You're Welcome! Will there be anything else?
+greeting_response_bad,lousy,Sorry to hear that. What can I do for you today?
+greeting_response_bad,really annoyed,Sorry to hear that. What can I do for you today?
+ending,bye,Goodbye!
+ending,Goodbye!,Enjoy your day and thank you. Bye!
+ending,"Have a nice day, bye!","You too, bye!"

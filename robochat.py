@@ -45,6 +45,9 @@ def RUN_CHATBOT(NN, model, processing_model):
         intents = NN.predict(model, message, processing_model.words, processing_model.classes)
         result = get_response(intents, dataset)
         print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, result)
+        if intents == ['ending']:
+            print(Fore.RED + "Ending the chat\n " + Style.RESET_ALL, end="")
+            break
 
 
 # ----- ROBO-CHAT IMPLEMENTATION -----#

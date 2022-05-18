@@ -4,7 +4,8 @@ from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
 import string
 import pandas as pd
-
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 nltk.download('omw-1.4')
 nltk.download("punkt")
 nltk.download("wordnet")
