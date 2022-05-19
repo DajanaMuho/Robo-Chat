@@ -174,20 +174,15 @@ class PreProcessing:
         # Turning list into a dataframe so it can be plotted
         plt.figure(figsize=(9, 6))
         # Needs to be set ahead of time before specifying the plot
-        #TODO: Return the 10 value back to 500
-        STOP_WORDS_COUNT = stop_words_removed_df['stop words'].value_counts().loc[lambda x: x > 10].plot(kind='barh').invert_yaxis()
+        #TODO: Return the 10 value back to 500 <- FIXED 5-19-22 E_MILLER - SHOWS TOP 25 NOW
+        STOP_WORDS_COUNT = stop_words_removed_df['stop words'].value_counts().nlargest(25).plot(kind='barh').invert_yaxis()
         # creating a horizontal bar plot from the stop words frequency
-        # NOTE .loc[lambda x : x>500] added here to constrain the plot to show
-        # only bars with over 500 stopwords removed
-        """
-        STOP_WORDS_COUNT = stop_words_removed_df['stop words']\
-        .value_counts().plot(kind = 'barh').invert_yaxis()
+        # NOTE .nlargest(25) added here to constrain the plot to show
+        # only the 25 highest bars in the list
 
-        basic section here; no need for contraints with small size
-        """
         plt.xticks(rotation=0)
         # An extra part of the figure size above
-        plt.title("Bar Plot Showing Frequency of Stop Words Removed")
+        plt.title("Bar Plot Showing Frequency of Stop Words Removed (Top 25)")
         # title of the plot
         plt.show()
         # show the plot
