@@ -2,6 +2,7 @@ import pandas as pd
 import colorama
 import random
 import numpy as np
+import matplotlib.pyplot as plt
 
 colorama.init()
 from colorama import Fore, Style
@@ -34,6 +35,17 @@ def get_response(intents_list, data):
     return result
 
 
+def visualize_tag_classification(sentence, tags_predictions):
+    tags = [row[0] for row in tags_predictions]
+    predictions = [row[1] for row in tags_predictions]
+    plt.bar(tags, predictions)
+    plt.xticks(rotation="90")
+    plt.xlabel('Tags')
+    plt.ylabel('Prediction')
+    plt.title('Prediction of Tag for: ' + ' " ' + sentence + ' " ')
+    plt.show()
+
+
 def RUN_CHATBOT(NN, model, processing_model):
     print('START CHATTING WITH THE ROBO_CHAT, \n\nTYPE any of the words to stop the conversation:\n', QUIT, '\n')
     while True:
@@ -42,9 +54,10 @@ def RUN_CHATBOT(NN, model, processing_model):
         if message in QUIT:
             print(Fore.RED + "Ending the chat\n " + Style.RESET_ALL, end="")
             break
-        intents = NN.predict(model, message, processing_model.words, processing_model.classes)
+        intents, all_tags_predictions = NN.predict(model, message, processing_model.words, processing_model.classes)
         result = get_response(intents, dataset)
         print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, result)
+        visualize_tag_classification(message, all_tags_predictions)
         if intents == ['ending']:
             print(Fore.RED + "Ending the chat\n " + Style.RESET_ALL, end="")
             break

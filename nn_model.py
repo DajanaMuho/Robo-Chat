@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense, Dropout
 from pre_processing_model import clean_text
-
+import matplotlib.pyplot as plt
 
 def bag_of_words(text, vocab):
     tokens = clean_text(text)
@@ -13,7 +13,6 @@ def bag_of_words(text, vocab):
             if word == w:
                 bow[idx] = 1
     return np.array(bow)
-
 
 class Model:
     def __init__(self, train_X, train_y):
@@ -35,7 +34,8 @@ class Model:
                       optimizer=adam,
                       metrics=["accuracy"])
         print(model.summary())
-        model.fit(x=self.train_X, y=self.train_y, epochs=self.epochs, verbose=1)
+        history = model.fit(x=self.train_X, y=self.train_y, epochs=self.epochs, verbose=1)
+        self.visualize_Loss_Accuracy(history.history)
         return model
 
     def predict(self, nn_model,  text, vocab, labels):
@@ -44,10 +44,26 @@ class Model:
         thresh = 0.2
         y_pred = [[idx, res] for idx, res in enumerate(result) if res > thresh]
 
+        # needed for visualization
+        all_tags_predictions = []
+        all_prediction = [[idx, res] for idx, res in enumerate(result)]
+        for i in all_prediction:
+            all_tags_predictions.append([labels[i[0]], i[1]])  # [tag, prediction value]
         y_pred.sort(key=lambda x: x[1], reverse=True)
         return_list = []
         for r in y_pred:
             return_list.append(labels[r[0]])
-        return return_list
+        return return_list, all_tags_predictions
 
+    def visualize_Loss_Accuracy(self, history):
+        loss = history['loss']
+        accuracy = history['accuracy']
+        epochs = range(1, self.epochs + 1)
+        plt.plot(epochs, loss, 'g', label='Loss')
+        plt.plot(epochs, accuracy, 'b', label='Accuracy')
+        plt.title('Training Accuracy And Loss')
+        plt.xlabel('Epochs')
+        plt.ylabel('Value')
+        plt.legend()
+        plt.show()
 
