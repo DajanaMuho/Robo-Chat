@@ -1,14 +1,14 @@
 Tag,Pattern,Responses
 greeting,Hello,Hola
-greeting_question_how,How are you,I'm great! How are you?
+greeting_question_how,How are you doing?,I'm great! How are you?
 greeting,Hi,Greetings
 greeting,Hi there,Hello
 greeting,Howdy,Hi there yourself!
 closing,thanks,You're Welcome! Will there be anything else?
 closing,thank you,You're Welcome! Will there be anything else?
 closing,gracias,You're Welcome! Will there be anything else?
-greeting_question,What's up?,"Nothing much, you?"
-greeting_question,what's up?,"Nothing much, you?"
+greeting_question_how,What's up?,I'm great! How are you?
+greeting_question_how,what's up?,I'm great! How are you?
 chatbot_question_who,Who's this,I'm a chatbot! How can I help you?
 chatbot_question_who,Who am I talking to,You're not talking to anyone actually. I'm a chatbot! How can I help you?
 chatbot_question_person,Are you a person,I'm a chatbot! How can I help you?
@@ -67,3 +67,9 @@ greeting_response_bad,really annoyed,Sorry to hear that. What can I do for you t
 ending,bye,Goodbye!
 ending,Goodbye!,Enjoy your day and thank you. Bye!
 ending,"Have a nice day, bye!","You too, bye!"
+yes_no,never mind,Just type STOP QUIT or END to finish the chat
+greeting,hey there,Hi!
+greeting ,hey,Hi!
+greeting_question_how,How's it going?,I'm great! How are you?
+greeting,Hello there!,Hi!
+chatbot_question_who,My name is,chatbot_question_who
