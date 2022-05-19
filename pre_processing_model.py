@@ -5,6 +5,15 @@ from nltk.stem import PorterStemmer
 import string
 import pandas as pd
 from nltk.stem import WordNetLemmatizer
+# ADDING CONTRACTION EXPANDER - E MILLER
+import contractions
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+from matplotlib.pyplot import figure
+
+# Added imports E - MILLER
+
 lemmatizer = WordNetLemmatizer()
 nltk.download('omw-1.4')
 nltk.download("punkt")
@@ -12,9 +21,6 @@ nltk.download("wordnet")
 
 # ADDING STOPWORDS - E MILLER
 nltk.download("stopwords")
-
-# ADDING CONTRACTION EXPANDER - E MILLER
-import contractions
 
 
 def clean_text(text):
@@ -37,13 +43,13 @@ class PreProcessing:
         for index, row in self.dataset.iterrows():
             pattern = row["Pattern"]
 
-            ########## ADDED CODE - E_Miller 5_18
+            # ADDED CODE - E_Miller 5_18
 
             pattern = text_preprocessor(pattern)
 
             # Calling text_preprocessor function to add processing to pattern
 
-            ########## ADDED CODE - E_Miller 5_18
+            # ADDED CODE - E_Miller 5_18
 
             tokens = nltk.word_tokenize(pattern)
             self.words.extend(tokens)
@@ -101,7 +107,7 @@ def text_preprocessor(text):
     # this function takes in a string of text and processes it
     # so that it can more easily fit into the neural network
 
-    punctuation = ",!\#$%&()*+-./:;<=>?@[\]^_`{|}~'"
+    punctuation = ",!#$%&()*+-./\:;<=>?@[]^_`{|}~'"
     # Saving a list of commonly used punctuation to a string in order to remove
     # them from the text columns
     stop_words = stopwords.words("english")
@@ -157,3 +163,145 @@ def text_preprocessor(text):
     # PUTTING REDUCED BACK TOGETHER TO RETURN
 
     return new_text
+
+# E_MILLER - PLOT FUNCTIONS BELOW HERE
+
+def Tags_Plotter():
+
+    # Makes a plot of the tags from the basic Q&A files
+
+    Q_A_BASIC = pd.read_csv("https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv")
+
+    # Showing horizontal bar charts of the number of occurences of tags
+
+    plt.figure(figsize=(9, 6))
+
+    # Needs to be set ahead of time before specifying the plot
+
+    TAGS = Q_A_BASIC["Tag"].value_counts().plot(kind='barh').invert_yaxis()
+
+    plt.xticks(rotation=0)
+
+    # An extra part of the figure size above
+
+    plt.title("Bar Plot Showing Frequency of Tags")
+
+    plt.show()
+
+    # Show the plot
+
+
+def Stop_Word_Plotter():
+    # this function pre-processes the text data in a single text column and then finds out
+    # how many stop words were removed and plots them in a bar graph
+
+    """####### BASIC SECTION ########
+
+    #Q_A_BASIC = pd.read_csv("https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv")
+
+    # read in the CSV from the Github site
+
+    #text_df = Q_A_BASIC["Pattern"]
+
+    # save the "Pattern" column into text_df
+
+    """
+
+    ####### FULL SECTION ########
+
+    Q_A_FULL = pd.read_csv("https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/WikiQA.csv", sep='\t')
+
+    text_df = Q_A_FULL["Pattern"]
+
+    # save the "Pattern" column into text_df
+
+    ###############################
+
+    num_rows = len(text_df)
+
+    # get num rows in text_df
+
+    punctuation = ",!#$%&()*+-./\:;<=>?@[]^_`{|}~'"
+
+    # Saving a list of commonly used punctuation to a string in order to remove
+    # them from the text columns
+
+    stop_words = stopwords.words("english")
+
+    # getting list of common stopwords to remove from the text entries
+
+    stop_words_removed = []
+
+    # initializing empty list of stop words being removed
+
+    for row in range(num_rows):
+
+        text = text_df.iloc[row].lower()
+
+        # getting the text to process from the row of text_df
+
+        expanded_words = []
+        # creating an empty list for contractions
+        for word in text.split():
+            # using contractions.fix to expand the shortened words
+            expanded_words.append(contractions.fix(word))
+
+        expanded_text = ' '.join(expanded_words)
+
+        # expanding contractions
+
+        new_text = expanded_text.lower()
+
+        # make lower case text
+
+        for char in new_text:
+            if char in punctuation:
+                new_text = new_text.replace(char, " ")
+
+        # get rid of punctuation
+
+        for word in new_text.split():
+
+            if word in stop_words:
+                # see if a word in new_text is in the list of stop_words
+
+                stop_words_removed.append(word)
+
+                # adding to list of stop words removed if its in the list
+
+    stop_words_removed_df = pd.DataFrame(stop_words_removed, columns=['stop words'])
+
+    # Turning list into a dataframe so it can be plotted
+
+    plt.figure(figsize=(9, 6))
+
+    # Needs to be set ahead of time before specifying the plot
+
+    STOP_WORDS_COUNT = stop_words_removed_df['stop words'] \
+        .value_counts().loc[lambda x: x > 500].plot(kind='barh').invert_yaxis()
+
+    # creating a horizontal bar plot from the stop words frequency
+    # NOTE .loc[lambda x : x>500] added here to constrain the plot to show
+    # only bars with over 500 stopwords removed
+
+    """
+    STOP_WORDS_COUNT = stop_words_removed_df['stop words']\
+    .value_counts().plot(kind = 'barh').invert_yaxis()
+
+    basic section here; no need for contraints with small size
+
+    """
+
+    plt.xticks(rotation=0)
+
+    # An extra part of the figure size above
+
+    plt.title("Bar Plot Showing Frequency of Stop Words Removed")
+
+    # title of the plot
+
+    plt.show()
+
+    # show the plot
+
+
