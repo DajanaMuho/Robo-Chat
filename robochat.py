@@ -69,6 +69,11 @@ dataset = pd.read_csv(path)  # Read the dataset
 
 # Pre-Processing
 preprocessing = pre_processing_model.PreProcessing(dataset)
+
+# Visualization about pre-processing
+preprocessing.Stop_Word_Plotter()
+preprocessing.Tags_Plotter()
+
 preprocessing.pre_process_words()
 training = preprocessing.bag_of_words_model()
 train_X, train_y = split_data(training)
