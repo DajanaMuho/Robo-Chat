@@ -43,7 +43,7 @@ def get_closest_answer(user_input, df):
 
     MAX_ROW = similarity_df.idxmax()
 
-    print("MAX_ROW = ", MAX_ROW)
+    #print("MAX_ROW = ", MAX_ROW)
 
     # Find the index of the max value.
 
