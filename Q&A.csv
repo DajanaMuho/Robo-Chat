@@ -72,4 +72,4 @@ greeting,hey there,Hi!
 greeting ,hey,Hi!
 greeting_question_how,How's it going?,I'm great! How are you?
 greeting,Hello there!,Hi!
-chatbot_question_who,My name is,chatbot_question_who
+chatbot_question_who,My name is,""
