@@ -12,7 +12,7 @@ import pre_processing_model
 # -----CONSTANTS-----#
 # List of words to end the chatbot conversation
 QUIT = list(["stop", "quit", "end", "Stop", "Quit", "End", "STOP", "QUIT", "END"])
-path = "Q&A.csv"
+path = "WikiQA.csv"
 
 
 # -----METHODS-----#
@@ -65,17 +65,18 @@ def RUN_CHATBOT(NN, model, processing_model):
 
 # ----- ROBO-CHAT IMPLEMENTATION -----#
 
-dataset = pd.read_csv(path)  # Read the dataset
+dataset = pd.read_csv(path, sep='\t')  # Read the dataset
 
 # Pre-Processing
 preprocessing = pre_processing_model.PreProcessing(dataset)
 
 # Visualization about pre-processing
-preprocessing.Stop_Word_Plotter()
-preprocessing.Tags_Plotter()
+#preprocessing.Stop_Word_Plotter()
+#preprocessing.Tags_Plotter()
 
 preprocessing.pre_process_words()
 training = preprocessing.bag_of_words_model()
+print(training)
 train_X, train_y = split_data(training)
 
 # Feed training data into a Neural Network Model
