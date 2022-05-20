@@ -41,18 +41,20 @@ def get_closest_answer(user_input, df):
 
     similarity_df = pd.DataFrame(similarity_array)
 
-    MAX_ROW = similarity_df.idxmax()
+    # Make array into a dataframe to make it easier to work with
 
-    #print("MAX_ROW = ", MAX_ROW)
+    MAX_ROW = similarity_df.idxmax()
 
     # Find the index of the max value.
 
-    best_response = df.iat[MAX_ROW][2]
+    MAX_ROW = int(MAX_ROW + 0)
 
-    # TODO: Access sentence from the dataframe; right now causing errors
+    # mske sure MAX_ROW is an integer
 
-    print(best_response)
+    best_response = df.loc[MAX_ROW].at["Responses"]
+
+    # get best response from row corresponding to the
+    # most similarity
 
     return best_response
-
 
