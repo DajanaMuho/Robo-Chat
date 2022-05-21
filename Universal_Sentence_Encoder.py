@@ -5,15 +5,35 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 
-import tensorflow_hub as hub
+
+def embed_training_data(df):
+    return embed(df["Pattern"].values)
 
 
+def embed_input(user_input):
+    return embed([user_input])
+
+
+def get_cos_similarity(embedded_training_data, input_query):
+    embedded_input = embed_input(input_query)
+    return cosine_similarity(embedded_training_data, embedded_input)
+
+
+def get_response(dataset, embedded_training_data, input_query):
+    cos_similarity = get_cos_similarity(embedded_training_data, input_query)
+    similarity_df = pd.DataFrame(cos_similarity)
+    MAX_ROW = similarity_df.idxmax()
+    MAX_ROW = int(MAX_ROW + 0)
+    return dataset.loc[MAX_ROW].at["Responses"]
+
+
+# TO BE Removed as isn't being called , keeping it for reference
 def get_closest_answer(user_input, df):
     # Gets the closest answer using cosine similiarity
 
     embedded_input = embed([user_input])
 
-    # change user input into a vector
+    # change user input_query into a vector
 
     similarity_array = np.zeros((len(df)), dtype=float)
 
@@ -32,7 +52,7 @@ def get_closest_answer(user_input, df):
 
         similarity = cosine_similarity(embedded_input, embedded_question)
 
-        # seeing how similar the the input and the question are using
+        # seeing how similar the the input_query and the question are using
         # cosine_similarity
 
         similarity_array[index] = similarity
@@ -57,4 +77,3 @@ def get_closest_answer(user_input, df):
     # most similarity
 
     return best_response
-
