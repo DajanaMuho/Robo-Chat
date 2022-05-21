@@ -172,4 +172,64 @@ def is_input_a_question(df):
         return True
 
 
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
 
+
+def similarity_plot():
+
+    # Makes a horizontal bar charts of the most likely
+    # #responses based on cosine similarity
+
+    Q_A = pd.read_csv("https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/WikiQA.csv", sep='\t')
+
+    # reading the dataset
+
+    user_input = str("Hi there, how are you doing today")
+
+    # Gets the closest answer using cosine similiarity
+
+    embedded_input = embed([user_input])
+
+    # change user input into a vector
+
+    embedded_questions = embed(Q_A["Pattern"].values)
+
+    # embed the question data
+
+    similarity = cosine_similarity(embedded_input, embedded_questions)
+
+    # get an array of cosine similarities
+
+    similarity_df = pd.DataFrame(np.transpose(similarity), columns=["Similarity"])
+
+    # Make array into a dataframe to make it easier to work with
+
+    similarity_df_sorted = similarity_df.sort_values(by="Similarity", ascending=False)
+
+    Ten_Most_Similar = similarity_df_sorted[:10]
+
+    Best_Responses_List = Q_A["Responses"].copy()
+
+    Best_Responses_List = pd.DataFrame(Best_Responses_List, index=Ten_Most_Similar.index)
+
+    SIMILAR_DF = pd.concat([Best_Responses_List, Ten_Most_Similar], axis=1, join='outer')
+
+    # put together a full dataframe to use for the plot
+
+    plt.figure(figsize=(15, 10))
+
+    # Needs to be set ahead of time before specifying the plot
+
+    SIMILAR_DF.plot(x="Responses", y="Similarity", kind='barh').invert_yaxis()
+
+    plt.xticks(rotation=0)
+
+    # An extra part of the figure size above
+
+    plt.title \
+        ("Using Cosine Similarity to find most likely Responses to 'Hi there, how are you doing today'")
+
+    plt.show()
+
+    # Show the plot
