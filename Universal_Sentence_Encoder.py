@@ -5,31 +5,41 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 
+# Getting the universal sentence encoder for use in the chatbot
 
 def embed_training_data(df):
+    # embeds the training data into vectors ahead of time
+    # to make searches faster
     return embed(df["Pattern"].values)
 
 
 def embed_input(user_input):
+    # change user input_query into a vector
     return embed([user_input])
 
 
 def get_cos_similarity(embedded_training_data, input_query):
     embedded_input = embed_input(input_query)
+    # seeing how similar the input_query and the question are using
+    # cosine_similarity
     return cosine_similarity(embedded_training_data, embedded_input)
 
 
 def get_response(dataset, embedded_training_data, input_query):
     cos_similarity = get_cos_similarity(embedded_training_data, input_query)
+    # gets all similarities between the user input and the Q&A dataset
     similarity_df = pd.DataFrame(cos_similarity)
+    # making into a data frame in order to be able to search easier
     MAX_ROW = similarity_df.idxmax()
     MAX_ROW = int(MAX_ROW + 0)
+    # getting the row number where the largest similarity is
+    # and sending back the matching response from that row
     return dataset.loc[MAX_ROW].at["Responses"]
 
 
 # TO BE Removed as isn't being called , keeping it for reference
 def get_closest_answer(user_input, df):
-    # Gets the closest answer using cosine similiarity
+    # Gets the closest answer using cosine similarity
 
     embedded_input = embed([user_input])
 
@@ -52,7 +62,7 @@ def get_closest_answer(user_input, df):
 
         similarity = cosine_similarity(embedded_input, embedded_question)
 
-        # seeing how similar the the input_query and the question are using
+        # seeing how similar the input_query and the question are using
         # cosine_similarity
 
         similarity_array[index] = similarity
@@ -73,7 +83,93 @@ def get_closest_answer(user_input, df):
 
     best_response = df.loc[MAX_ROW].at["Responses"]
 
-    # get best response from row corresponding to the
+    # get the best response from row corresponding to the
     # most similarity
 
     return best_response
+
+
+# E_MILLER May 21, 2022 - 5:17pm
+# Adding faster get responses function with more information returned
+# Adding function to check whether the user is asking a Wiki question
+# or making small talk
+
+def get_closest_answers(user_input, df):
+    # Gets a data frame of the
+    # closest answers using cosine similarity
+
+    embedded_input = embed([user_input])
+
+    # change user input into a vector
+
+    embedded_questions = embed(df["Pattern"].values)
+
+    # embed the question data
+
+    similarity = cosine_similarity(embedded_input, embedded_questions)
+
+    # get an array of cosine similarities
+
+    similarity_df = pd.DataFrame(np.transpose(similarity), columns=["Similarity"])
+
+    # Make array into a dataframe to make it easier to work with
+
+    similarity_df_sorted = similarity_df.sort_values(by="Similarity", ascending=False)
+
+    Most_Similar = similarity_df_sorted[:5]
+
+    # getting the rows with the 5 highest similarities
+
+    Best_Response_List = df["Responses"].copy()
+
+    Best_Response_List = pd.DataFrame(Best_Response_List, index=Most_Similar.index)
+
+    # Getting the responses fitting with the rows most similar
+
+    Tag_List = df["Tag"].copy()
+
+    Tag_List = pd.DataFrame(Tag_List, index=Most_Similar.index)
+
+    # Getting the tags associated with the responses
+
+    RESPONSE_DF = pd.concat([Most_Similar, Best_Response_List, Tag_List], axis=1, join='outer')
+
+    # putting the information together into one data frame to return
+    # has three columns - similarity, response and tag
+
+    return RESPONSE_DF
+
+
+def is_input_a_question(df):
+    # checks the tags of the best_response data frame
+    # to see if it's a question to look up or
+    # small talk
+
+    basic_url = "https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv"
+
+    DATA_BASIC = pd.read_csv(basic_url)
+
+    small_talk_tags = DATA_BASIC["Tag"].tolist()
+
+    # Getting a list of small talk tags to check
+
+    for index, row in df.iterrows():
+
+        TAG = row["Tag"]
+
+        if TAG in small_talk_tags:
+            # if loop finds matching tag corresponds
+            # with small talk tags
+            # return False since not a question
+
+            return False
+
+    else:
+
+        # if matching tag not in small talk
+        # return False since not a question
+
+        return True
+
+
+
