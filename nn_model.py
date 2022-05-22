@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras import Sequential
-from tensorflow.keras.layers import Dense, Dropout
+from tensorflow.keras import Sequential, Model
+from tensorflow.keras.layers import Dense, Dropout, Embedding, Flatten, Permute
 from pre_processing_model import clean_text
 import matplotlib.pyplot as plt
 
@@ -18,20 +18,17 @@ class Model:
     def __init__(self, train_X, train_y):
         self.train_X = train_X
         self.train_y = train_y
-        self.input_shape = (len(train_X[0]),)
-        self.output_shape = len(train_y[0])
-        self.epochs = 200
+        self.epochs = 10
 
     def fit(self):
         model = Sequential()
-        model.add(Dense(128, input_shape=self.input_shape, activation="relu"))
-        model.add(Dropout(0.5))
-        model.add(Dense(64, activation="relu"))
+        model.add(Dense(512, input_shape=(len(self.train_X[0]),), activation='relu'))
         model.add(Dropout(0.3))
-        model.add(Dense(self.output_shape, activation="softmax"))
-        adam = tf.keras.optimizers.Adam(learning_rate=0.01, decay=1e-6)
+        model.add(Dense(256, activation='relu'))
+        model.add(Dropout(0.3))
+        model.add(Dense(len(self.train_y[0]), activation='softmax'))
         model.compile(loss='categorical_crossentropy',
-                      optimizer=adam,
+                      optimizer='adam',
                       metrics=["accuracy"])
         print(model.summary())
         history = model.fit(x=self.train_X, y=self.train_y, epochs=self.epochs, verbose=1)
@@ -42,7 +39,7 @@ class Model:
         bow = bag_of_words(text, vocab)
         result = nn_model.predict(np.array([bow]))[0]
         thresh = 0.2
-        y_pred = [[idx, res] for idx, res in enumerate(result) if res > thresh]
+        y_pred = [[idx, res] for idx, res in enumerate(result)] # if res > thresh]
 
         # needed for visualization
         all_tags_predictions = []
