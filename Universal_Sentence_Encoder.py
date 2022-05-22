@@ -39,6 +39,55 @@ def get_response(dataset, embedded_training_data, input_query):
     # and sending back the matching response from that row
     return dataset.loc[MAX_ROW].at["Responses"]
 
+# E_MILLER May 21, 2022 - 5:17pm
+# Adding faster get responses function with more information returned
+# Adding function to check whether the user is asking a Wiki question
+# or making small talk
+
+def get_closest_answers(user_input, df):
+    # Gets a data frame of the
+    # closest answers using cosine similarity
+
+    embedded_input = embed([user_input])
+
+    # change user input into a vector
+
+    embedded_questions = embed(df["Pattern"].values)
+
+    # embed the question data
+
+    similarity = cosine_similarity(embedded_input, embedded_questions)
+
+    # get an array of cosine similarities
+
+    similarity_df = pd.DataFrame(np.transpose(similarity), columns=["Similarity"])
+
+    # Make array into a dataframe to make it easier to work with
+
+    similarity_df_sorted = similarity_df.sort_values(by="Similarity", ascending=False)
+
+    Most_Similar = similarity_df_sorted[:5]
+
+    # getting the rows with the 5 highest similarities
+
+    Best_Response_List = df["Responses"].copy()
+
+    Best_Response_List = pd.DataFrame(Best_Response_List, index=Most_Similar.index)
+
+    # Getting the responses fitting with the rows most similar
+
+    Tag_List = df["Tag"].copy()
+
+    Tag_List = pd.DataFrame(Tag_List, index=Most_Similar.index)
+
+    # Getting the tags associated with the responses
+
+    RESPONSE_DF = pd.concat([Most_Similar, Best_Response_List, Tag_List], axis=1, join='outer')
+
+    # putting the information together into one data frame to return
+    # has three columns - similarity, response and tag
+
+    return RESPONSE_DF
 
 def is_input_a_question(df):
     # checks the tags of the best_response data frame
@@ -102,3 +151,49 @@ def similarity_plot(similarity, input, responses):
     plt.show()
 
     # Show the plot
+
+def QUESTION_SEARCH(user_input, DATA_FULL):
+    # takes in a user response and a dataset, gets the best responses
+    # and asks the user if that's what they were looking for
+
+    BEST = get_closest_answers(user_input, DATA_FULL)
+
+    # gets the dataframe of the five closest answers
+
+    BEST_ANSWER = BEST.iloc[0]["Responses"]
+
+    # Gets the first best answer
+
+    print(BEST_ANSWER)
+
+    # prints best answer from get closest_answers function
+
+    confirmation_words = list(["yes", "y", "yep", "Yes", "YES", "yeah", "yep", "Yeah", "YEAH", "YEP", "Y"])
+
+    # list of words to break the loop below
+
+    for i in range(5):
+
+        yes_or_no = input("Was that you were looking for? ")
+
+        # Looking for a yes or no from the user
+
+        if (yes_or_no not in confirmation_words) and (i == 4):
+            print("Sorry, I couldn't find the answer you were looking for")
+            break
+
+            # leaves the loop if it reaches the fifth answer and the user
+            # still says that it wasn't the answer they were looking for
+
+        if yes_or_no in confirmation_words:
+
+            break
+
+            # leaves the loop if user says yes
+
+        else:
+
+            print("Here is another answer I've found:")
+            print(BEST.iloc[i + 1]["Responses"])
+
+        # Gives the next answer in the data frame
