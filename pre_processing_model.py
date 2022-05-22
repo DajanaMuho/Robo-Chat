@@ -120,7 +120,9 @@ class PreProcessing:
 
         # E.Miller - May 22 - changing Q tags to "question"
 
-        for index, row in self.dataset.iterrows():
+        df = self.dataset
+
+        for index, row in df.iterrows():
 
             string1 = row["Tag"]
 
@@ -143,7 +145,7 @@ class PreProcessing:
         # Showing horizontal bar charts of the number of occurrences of tags
         plt.figure(figsize=(9, 6))
         # Needs to be set ahead of time before specifying the plot
-        TAGS = self.dataset["Tag"].value_counts().nlargest(25).plot(kind='barh').invert_yaxis()
+        TAGS = df["Tag"].value_counts().nlargest(25).plot(kind='barh').invert_yaxis()
         plt.xticks(rotation=0)
         # An extra part of the figure size above
         plt.xscale('symlog')
