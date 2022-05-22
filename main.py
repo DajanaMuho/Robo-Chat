@@ -17,6 +17,22 @@ def RUN_CHATBOT(embedded_training_data, dataset):
     while True:
         print(Fore.YELLOW + "HUMAN:" + Style.RESET_ALL, end="")
         message = input("")
+
+        # NEW SECTION - E.Miller
+
+        answers = Universal_Sentence_Encoder.get_closest_answers(message, dataset)
+
+        if Universal_Sentence_Encoder.is_input_a_question(answers) == True:
+
+            Universal_Sentence_Encoder.QUESTION_SEARCH(message, dataset)
+
+        else:
+
+            small_talk_response = answers.iloc[0]["Responses"]
+            print(small_talk_response)
+
+        # END OF NEW SECTION E.Millerhi
+
         if message in QUIT:
             print(Fore.RED + "Ending the chat\n " + Style.RESET_ALL, end="")
             break
