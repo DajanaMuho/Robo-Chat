@@ -27,6 +27,8 @@ def split_data(training_data):
 
 
 def get_response(intents_list, data):
+    if len(intents_list) == 0:
+        return random.choice(data[data['Tag'] == 'Unknown']['Responses'].values)
     tag = intents_list[0]
     for index_i, row_i in data.iterrows():
         if row_i["Tag"] == tag:
@@ -74,12 +76,14 @@ preprocessing = pre_processing_model.PreProcessing(dataset)
 #preprocessing.Stop_Word_Plotter()
 #preprocessing.Tags_Plotter()
 
+print('Pre-processing data...\n')
 preprocessing.pre_process_words()
 training = preprocessing.bag_of_words_model()
-print(training)
+
 train_X, train_y = split_data(training)
 
 # Feed training data into a Neural Network Model
+print('Fitting the model...\n')
 NN_MODEL = nn_model.Model(train_X, train_y)
 model = NN_MODEL.fit()
 

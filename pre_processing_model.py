@@ -90,10 +90,8 @@ class PreProcessing:
         # Organize tags and patterns
         for index, row in self.dataset.iterrows():
             pattern = row["Pattern"]
-            # ADDED CODE - E_Miller 5_18
-            pattern = text_preprocessor(pattern)
-            # Calling text_preprocessor function to add processing to pattern
-            # ADDED CODE - E_Miller 5_18
+            # Calling text_preprocessor function to add processing to pattern - ADDED CODE - E_Miller 5_18
+            #pattern = text_preprocessor(pattern)
             tokens = nltk.word_tokenize(pattern)
             self.words.extend(tokens)
             self.doc_X.append(pattern)
@@ -104,12 +102,8 @@ class PreProcessing:
         # Lemmatize the words
         self.words = [lemmatizer.lemmatize(word.lower()) for word in self.words if word not in string.punctuation]
         # sort the set to remove duplicated words
-        words = sorted(set(self.words))
-        classes = sorted(set(self.classes))
-        # print(self.words)
-        # print(self.classes)
-        # print(self.doc_X)
-        # print(self.doc_y)
+        self.words = sorted(set(self.words))
+        self.classes = sorted(set(self.classes))
 
     def bag_of_words_model(self):
         # convert data to numerical values
