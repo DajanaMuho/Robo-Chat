@@ -3,6 +3,9 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
+import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
+
 embed = hub.load("https://tfhub.dev/google/universal-sentence-encoder/4")
 
 # Getting the universal sentence encoder for use in the chatbot
@@ -36,57 +39,6 @@ def get_response(dataset, embedded_training_data, input_query):
     # and sending back the matching response from that row
     return dataset.loc[MAX_ROW].at["Responses"]
 
-
-# TO BE Removed as isn't being called , keeping it for reference
-def get_closest_answer(user_input, df):
-    # Gets the closest answer using cosine similarity
-
-    embedded_input = embed([user_input])
-
-    # change user input_query into a vector
-
-    similarity_array = np.zeros((len(df)), dtype=float)
-
-    # initializes array of similarities
-
-    for index, row in df.iterrows():
-        test_comparison = row["Pattern"]
-
-        # checking a question in the dataset
-
-        # print(test_comparison)
-
-        embedded_question = embed([test_comparison])
-
-        # vectorizing that question
-
-        similarity = cosine_similarity(embedded_input, embedded_question)
-
-        # seeing how similar the input_query and the question are using
-        # cosine_similarity
-
-        similarity_array[index] = similarity
-
-        # saving it into the array
-
-    similarity_df = pd.DataFrame(similarity_array)
-
-    # Make array into a dataframe to make it easier to work with
-
-    MAX_ROW = similarity_df.idxmax()
-
-    # Find the index of the max value.
-
-    MAX_ROW = int(MAX_ROW + 0)
-
-    # mske sure MAX_ROW is an integer
-
-    best_response = df.loc[MAX_ROW].at["Responses"]
-
-    # get the best response from row corresponding to the
-    # most similarity
-
-    return best_response
 
 
 # E_MILLER May 21, 2022 - 5:17pm
@@ -171,11 +123,6 @@ def is_input_a_question(df):
 
         return True
 
-
-import matplotlib.pyplot as plt
-from matplotlib.pyplot import figure
-
-
 def similarity_plot():
 
     # Makes a horizontal bar charts of the most likely
@@ -187,7 +134,7 @@ def similarity_plot():
 
     user_input = str("Hi there, how are you doing today")
 
-    # Gets the closest answer using cosine similiarity
+    # Gets the closest answer using cosine similarity
 
     embedded_input = embed([user_input])
 
@@ -233,3 +180,51 @@ def similarity_plot():
     plt.show()
 
     # Show the plot
+
+
+def QUESTION_SEARCH(user_input, DATA_FULL):
+    # takes in a user response and a dataset, gets the best responses
+    # and asks the user if that's what they were looking for
+
+    BEST = get_closest_answers(user_input, DATA_FULL)
+
+    # gets the dataframe of the five closest answers
+
+    BEST_ANSWER = BEST.iloc[0]["Responses"]
+
+    # Gets the first best answer
+
+    print(BEST_ANSWER)
+
+    # prints best answer from get closest_answers function
+
+    confirmation_words = list(["yes", "y", "yep", "Yes", "YES", "yeah", "yep", "Yeah", "YEAH", "YEP", "Y"])
+
+    # list of words to break the loop below
+
+    for i in range(5):
+
+        yes_or_no = input("Was that you were looking for? ")
+
+        # Looking for a yes or no from the user
+
+        if (yes_or_no not in confirmation_words) and (i == 4):
+            print("Sorry, I couldn't find the answer you were looking for")
+            break
+
+            # leaves the loop if it reaches the fifth answer and the user
+            # still says that it wasn't the answer they were looking for
+
+        if yes_or_no in confirmation_words:
+
+            break
+
+            # leaves the loop if user says yes
+
+        else:
+
+            print("Here is another answer I've found:")
+            print(BEST.iloc[i + 1]["Responses"])
+
+        # Gives the next answer in the data frame
+
