@@ -1,81 +1,23 @@
 import nltk
 from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.stem import PorterStemmer
 import string
 import pandas as pd
 from nltk.stem import WordNetLemmatizer
-# ADDING CONTRACTION EXPANDER - E MILLER
 import contractions
-
 import matplotlib.pyplot as plt
-import seaborn as sns
-from matplotlib.pyplot import figure
 
-# Added imports E - MILLER
-
-lemmatizer = WordNetLemmatizer()
 nltk.download('omw-1.4')
 nltk.download("punkt")
 nltk.download("wordnet")
-
-# ADDING STOPWORDS - E MILLER
 nltk.download("stopwords")
+
+lemmatizer = WordNetLemmatizer()
 
 
 def clean_text(text):
     tokens = nltk.word_tokenize(text)
     tokens = [lemmatizer.lemmatize(word) for word in tokens]
     return tokens
-
-
-def text_preprocessor(text):
-    # this function takes in a string of text and processes it
-    # so that it can more easily fit into the neural network
-    punctuation = ",!#$%&()*+-./\:;<=>?@[]^_`{|}~'"
-    # Saving a list of commonly used punctuation to a string in order to remove
-    # them from the text columns
-    stop_words = stopwords.words("english")
-    # getting list of common stopwords to remove from the text entries
-    lemma = WordNetLemmatizer()
-    # setting up lemmatizing function
-    stem = PorterStemmer()
-    # SETTING UP NEEDED FUNCTIONS TO PROCESS TEXT
-    expanded_words = []
-    # creating an empty list for contractions
-    for word in text.split():
-        # using contractions.fix to expand the shortened words
-        expanded_words.append(contractions.fix(word))
-    expanded_text = ' '.join(expanded_words)
-
-    # EXPANDING CONTRACTIONS
-    new_text = expanded_text.lower()
-
-    # MAKE TEXT LOWER CASE
-    for char in new_text:
-        if char in punctuation:
-            new_text = new_text.replace(char, " ")
-
-    # REMOVING PUNCTUATION
-    new_text = new_text.split()
-    # SPLITTING UP TEXT INTO INDIVIDUAL WORDS
-    for word in new_text:
-        if word in stop_words:
-            new_text.remove(word)
-
-    # REMOVING STOP WORDS
-    for word in new_text:
-        lemma.lemmatize(word)
-
-    # LEMMATIZING WORDS
-    for word in new_text:
-        stem.stem(word)
-
-    # STEMMING WORDS
-    new_text = " ".join(new_text)
-
-    # PUTTING REDUCED BACK TOGETHER TO RETURN
-    return new_text
 
 
 class PreProcessing:
@@ -90,8 +32,6 @@ class PreProcessing:
         # Organize tags and patterns
         for index, row in self.dataset.iterrows():
             pattern = row["Pattern"]
-            # Calling text_preprocessor function to add processing to pattern - ADDED CODE - E_Miller 5_18
-            #pattern = text_preprocessor(pattern)
             tokens = nltk.word_tokenize(pattern)
             self.words.extend(tokens)
             self.doc_X.append(pattern)
@@ -125,12 +65,6 @@ class PreProcessing:
     def Stop_Word_Plotter(self):
         # this function pre-processes the text data in a single text column and then finds out
         # how many stop words were removed and plots them in a bar graph
-        """####### BASIC SECTION ########
-        #Q_A_BASIC = pd.read_csv("https://raw.githubusercontent.com/DajanaMuho/Robo-Chat/main/Q%26A.csv")
-        # read in the CSV from the Github site
-        #text_df = Q_A_BASIC["Pattern"]
-        # save the "Pattern" column into text_df
-        """
         text_df = self.dataset["Pattern"]
         # save the "Pattern" column into text_df
         ###############################
@@ -168,8 +102,9 @@ class PreProcessing:
         # Turning list into a dataframe so it can be plotted
         plt.figure(figsize=(9, 6))
         # Needs to be set ahead of time before specifying the plot
-        #TODO: Return the 10 value back to 500 <- FIXED 5-19-22 E_MILLER - SHOWS TOP 25 NOW
-        STOP_WORDS_COUNT = stop_words_removed_df['stop words'].value_counts().nlargest(25).plot(kind='barh').invert_yaxis()
+        # TODO: Return the 10 value back to 500 <- FIXED 5-19-22 E_MILLER - SHOWS TOP 25 NOW
+        STOP_WORDS_COUNT = stop_words_removed_df['stop words'].value_counts().nlargest(25).plot(
+            kind='barh').invert_yaxis()
         # creating a horizontal bar plot from the stop words frequency
         # NOTE .nlargest(25) added here to constrain the plot to show
         # only the 25 highest bars in the list
@@ -192,21 +127,3 @@ class PreProcessing:
         plt.title("Bar Plot Showing Frequency of Tags")
         plt.show()
         # Show the plot
-
-
-
-    # EDWARDS CODE TO MERGE CSVs
-    """
-        QUESTION_COL = WikiQA1.loc[:, ["Question"]]
-        QUESTIONS_REDUCED = text_preprocessor(QUESTION_COL)
-        display(QUESTIONS_REDUCED)
-        dataset_WIKI = pd.DataFrame(columns=dataset.columns)
-        dataset_WIKI["Pattern"] = QUESTIONS_REDUCED
-        dataset_WIKI["Responses"] = WikiQA1.loc[:, ["Sentence"]]
-        # dataset_WIKI["Tag"] = str("keywords")
-        dataset_WIKI = dataset_WIKI.assign(Tag='keywords')
-        display(dataset_WIKI)
-        dataset_FULL = pd.concat([dataset_WIKI, dataset], axis=0)
-        # combining the two datasets
-        display(dataset_FULL)
-    """
