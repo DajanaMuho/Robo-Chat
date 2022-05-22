@@ -117,12 +117,37 @@ class PreProcessing:
         # show the plot
 
     def Tags_Plotter(self):
+
+        # E.Miller - May 22 - changing Q tags to "question"
+
+        for index, row in self.dataset.iterrows():
+
+            string1 = row["Tag"]
+
+            First_char = ord(string1[0])
+
+            # ASCII TABLE FOR 'Q' is 81 - check to see if this is a Q
+
+            Second_char = ord(string1[1])
+
+            # ASCII TABLE FOR DIGITS 48 - 57 - check to see if this is a digit
+
+            if First_char == 81 and Second_char > 47 and Second_char < 58:
+                row["Tag"] = "question"
+                # changes to question tag
+
+        # Now all tags with format Q and number show question
+
+        # E.Miller - May 22 - changing Q tags to "question"
+
         # Showing horizontal bar charts of the number of occurrences of tags
         plt.figure(figsize=(9, 6))
         # Needs to be set ahead of time before specifying the plot
         TAGS = self.dataset["Tag"].value_counts().nlargest(25).plot(kind='barh').invert_yaxis()
         plt.xticks(rotation=0)
         # An extra part of the figure size above
+        plt.xscale('symlog')
+        # log scale since question is so large
         plt.title("Bar Plot Showing Frequency of Tags")
         plt.show()
         # Show the plot
