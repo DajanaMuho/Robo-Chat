@@ -69,6 +69,9 @@ def similarity_plot(similarity, input_query, responses):
     similarity_df_sorted = similarity_df.sort_values(by="Similarity", ascending=False)
     Ten_Most_Similar = similarity_df_sorted[:10]
     Best_Responses_List = responses.copy()
+    # get the responses into its own data frame
+    Best_Responses_List = Best_Responses_List.str.slice(0, 50)
+    # Shorten the string to 50 chars to fit into the x labels
     Best_Responses_List = pd.DataFrame(Best_Responses_List, index=Ten_Most_Similar.index)
     SIMILAR_DF = pd.concat([Best_Responses_List, Ten_Most_Similar], axis=1, join='outer')
     # put together a full dataframe to use for the plot

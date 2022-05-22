@@ -117,11 +117,10 @@ class PreProcessing:
         # show the plot
 
     def Tags_Plotter(self):
-        # Makes a plot of the tags from the basic Q&A files
         # Showing horizontal bar charts of the number of occurrences of tags
         plt.figure(figsize=(9, 6))
         # Needs to be set ahead of time before specifying the plot
-        TAGS = self.dataset["Tag"].value_counts().plot(kind='barh').invert_yaxis()
+        TAGS = self.dataset["Tag"].value_counts().nlargest(25).plot(kind='barh').invert_yaxis()
         plt.xticks(rotation=0)
         # An extra part of the figure size above
         plt.title("Bar Plot Showing Frequency of Tags")

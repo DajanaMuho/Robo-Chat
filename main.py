@@ -47,7 +47,7 @@ def QUESTION_SEARCH(user_input, DATA_FULL):
             # leaves the loop if it reaches the fifth answer and the user still says that it wasn't the answer they
             # were looking for
         if yes_or_no in confirmation_words:
-            print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, "Happy I could help you. Do you have other question?")
+            print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, "Happy I could help you. Do you have another question?")
             break  # leaves the loop if user says yes
         else:
             print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, "Here is another answer I've found:\n")
