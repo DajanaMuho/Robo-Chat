@@ -60,7 +60,7 @@ def RUN_CHATBOT(NN, model, processing_model):
         result = get_response(intents, dataset)
         print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, result)
         visualize_tag_classification(message, all_tags_predictions)
-        if intents == ['ending']:
+        if intents[0] == 'ending':
             print(Fore.RED + "Ending the chat\n " + Style.RESET_ALL, end="")
             break
 
@@ -73,8 +73,8 @@ dataset = pd.read_csv(path, sep='\t')  # Read the dataset
 preprocessing = pre_processing_model.PreProcessing(dataset)
 
 # Visualization about pre-processing
-#preprocessing.Stop_Word_Plotter()
-#preprocessing.Tags_Plotter()
+preprocessing.Stop_Word_Plotter()
+preprocessing.Tags_Plotter()
 
 print('Pre-processing data...\n')
 preprocessing.pre_process_words()
