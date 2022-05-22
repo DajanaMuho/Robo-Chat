@@ -65,7 +65,7 @@ class PreProcessing:
     def Stop_Word_Plotter(self):
         # this function pre-processes the text data in a single text column and then finds out
         # how many stop words were removed and plots them in a bar graph
-        text_df = self.dataset["Pattern"]
+        text_df = self.dataset["Pattern"].copy()
         # save the "Pattern" column into text_df
         ###############################
         num_rows = len(text_df)
@@ -120,7 +120,7 @@ class PreProcessing:
 
         # E.Miller - May 22 - changing Q tags to "question"
 
-        df = self.dataset
+        df = self.dataset.copy()
 
         for index, row in df.iterrows():
 
