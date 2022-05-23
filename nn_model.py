@@ -43,13 +43,11 @@ class Model:
 
         # needed for visualization
         all_tags_predictions = []
-        all_prediction = [[idx, res] for idx, res in enumerate(result)]
-        for i in all_prediction:
-            all_tags_predictions.append([labels[i[0]], i[1]])  # [tag, prediction value]
         y_pred.sort(key=lambda x: x[1], reverse=True)
         return_list = []
         for r in y_pred:
             return_list.append(labels[r[0]])
+            all_tags_predictions.append([labels[r[0]], r[1]]) # [tag, prediction value]
         return return_list, all_tags_predictions
 
     def visualize_Loss_Accuracy(self, history):

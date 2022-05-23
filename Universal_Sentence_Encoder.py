@@ -81,4 +81,5 @@ def similarity_plot(similarity, input_query, responses):
     plt.xticks(rotation=0)
     # An extra part of the figure size above
     plt.title("Using Cosine Similarity to find most likely responses to " + "'" + input_query + "'")
+    plt.tight_layout()
     plt.show()

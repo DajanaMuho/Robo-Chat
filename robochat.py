@@ -38,13 +38,15 @@ def get_response(intents_list, data):
 
 
 def visualize_tag_classification(sentence, tags_predictions):
-    tags = [row[0] for row in tags_predictions]
-    predictions = [row[1] for row in tags_predictions]
+    five_tags_predictions = np.array(tags_predictions)[:5]
+    tags = [row[0] for row in five_tags_predictions]
+    predictions = [round(float(row[1]), 2) for row in five_tags_predictions]
     plt.bar(tags, predictions)
-    plt.xticks(rotation="90")
+    plt.xticks(rotation="45")
     plt.xlabel('Tags')
     plt.ylabel('Prediction')
     plt.title('Prediction of Tag for: ' + ' " ' + sentence + ' " ')
+    plt.tight_layout()
     plt.show()
 
 

@@ -113,6 +113,7 @@ class PreProcessing:
         # An extra part of the figure size above
         plt.title("Bar Plot Showing Frequency of Stop Words Removed (Top 25)")
         # title of the plot
+        plt.tight_layout()
         plt.show()
         # show the plot
 
@@ -151,5 +152,6 @@ class PreProcessing:
         plt.xscale('symlog')
         # log scale since question is so large
         plt.title("Bar Plot Showing Frequency of Tags")
+        plt.tight_layout()
         plt.show()
         # Show the plot
