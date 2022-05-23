@@ -80,5 +80,5 @@ def similarity_plot(similarity, input_query, responses):
     SIMILAR_DF.plot(x="Responses", y="Similarity", kind='barh').invert_yaxis()
     plt.xticks(rotation=0)
     # An extra part of the figure size above
-    plt.title("Using Cosine Similarity to find most likely Responses to " + "'" + input_query + "'")
+    plt.title("Using Cosine Similarity to find most likely responses to " + "'" + input_query + "'")
     plt.show()
