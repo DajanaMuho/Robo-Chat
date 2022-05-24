@@ -4,6 +4,8 @@ from tensorflow.keras import Sequential, Model
 from tensorflow.keras.layers import Dense, Dropout, Embedding, Flatten, Permute
 from pre_processing_model import clean_text
 import matplotlib.pyplot as plt
+from keras_visualizer import visualizer
+
 
 def bag_of_words(text, vocab):
     tokens = clean_text(text)
@@ -22,15 +24,17 @@ class Model:
 
     def fit(self):
         model = Sequential()
-        model.add(Dense(512, input_shape=(len(self.train_X[0]),), activation='relu'))
+        model.add(Dense(512, input_shape=(len(self.train_X[0]),), activation='relu')) # (3034,)
         model.add(Dropout(0.3))
         model.add(Dense(256, activation='relu'))
         model.add(Dropout(0.3))
-        model.add(Dense(len(self.train_y[0]), activation='softmax'))
+        model.add(Dense(len(self.train_y[0]), activation='softmax')) #1482
         model.compile(loss='categorical_crossentropy',
                       optimizer='adam',
                       metrics=["accuracy"])
         print(model.summary())
+        # visualize model architecture
+        visualizer(model, format='png', view=True)
         history = model.fit(x=self.train_X, y=self.train_y, epochs=self.epochs, verbose=1)
         self.visualize_Loss_Accuracy(history.history)
         return model
