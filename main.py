@@ -39,6 +39,8 @@ def QUESTION_SEARCH(user_input, df):
     # E Miller - Added section starts here
     #  plot cosine-similarity_plot
 
+    QUIT = list(["stop", "quit", "end", "Stop", "Quit", "End", "STOP", "QUIT", "END"])
+
     embedded_input = embed([user_input])
     # change user input_query into a vector
     embedded_questions = embed(df["Pattern"].values)
@@ -64,6 +66,12 @@ def QUESTION_SEARCH(user_input, df):
         print(Fore.YELLOW + "HUMAN: " + Style.RESET_ALL, end="")
         yes_or_no = input("")
         # Looking for a yes or no from the user
+
+        #E.MILLER - added break out of question section below
+        if (yes_or_no in QUIT):
+            print("TYPE any of the words to stop the conversation:\n", QUIT)
+            break
+        # E.MILLER - added break out of question section above
         if (yes_or_no not in confirmation_words) and (i == 4):
             print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, "Sorry, I couldn't find the answer you were looking for! ")
             break
@@ -72,6 +80,10 @@ def QUESTION_SEARCH(user_input, df):
         if yes_or_no in confirmation_words:
             print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, "Happy I could help you. Do you have another question? ")
             break  # leaves the loop if user says yes
+
+
+
+
         else:
             print(Fore.GREEN + "ROBO-CHAT:" + Style.RESET_ALL, "Here is another answer I've found:")
             print(BEST.iloc[i + 1]["Responses"] + '\n' + "Was that you were looking for? ")
